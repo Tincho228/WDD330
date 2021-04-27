@@ -1,0 +1,8 @@
+.bg-image {
+    background-image: url("../images/bg-computer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.text-orange {
+    color: #d25b00;
+}
