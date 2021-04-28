@@ -6,3 +6,8 @@
 .text-orange {
     color: #d25b00;
 }
+.borderDiv {
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
