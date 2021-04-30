@@ -9,7 +9,8 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
@@ -27,51 +28,70 @@
         </div>
       </div>
     </header>
-    <section class="sectionNotes">  
+    <section class="sectionNotes">
       <!-- Week Title  -->
       <h2 class="text-center borderDiv" style="margin:10px 0px;">Week2</h2>
       <!-- Week Content -->
       <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="list-group" style="margin-bottom: 5px;" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action list-group-item-dark active" id="list-notes-list" data-toggle="list" href="#list-notes" role="tab" aria-controls="notes"><i class="fas fa-sticky-note"></i> Notes</a>
-            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-exercises-list" data-toggle="list" href="#list-exercises" role="tab" aria-controls="exercises"><i class="fas fa-running"></i> Exercises</a>
-            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-questions-list" data-toggle="list" href="#list-questions" role="tab" aria-controls="questions"><i class="far fa-question-circle"></i> Questions</a>
-            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"><i class="fas fa-cogs"></i> Settings</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark active" id="list-notes-list"
+              data-toggle="list" href="#list-notes" role="tab" aria-controls="notes"><i class="fas fa-sticky-note"></i>
+              Notes</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-exercises-list"
+              data-toggle="list" href="#list-exercises" role="tab" aria-controls="exercises"><i
+                class="fas fa-running"></i> Exercises</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-questions-list"
+              data-toggle="list" href="#list-questions" role="tab" aria-controls="questions"><i
+                class="far fa-question-circle"></i> Questions</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-settings-list"
+              data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"><i class="fas fa-cogs"></i>
+              Settings</a>
           </div>
         </div>
         <div class="col-sm-12 col-md-8">
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="list-notes" role="tabpanel" aria-labelledby="list-notes-list">
               <h3>Notes</h3>
-              Working on the projects.</div>
+              <span class="text-success"><strong>Chapter 2</strong></span><br>
+              <strong>Variables:</strong> const is used if a value is unlikely to change in your code, and let should only be used for storing values that will need to be
+              reassigned while the program is running.<br>
+              <strong>Scope:</strong> Using const and let to declare variables means they are block scoped, so their value only exists inside the block they are declared in. Global Scope variables should be kept at minimum.<br>
+              <strong>Template literals:</strong> ALT+NUMPAD9+NUMPAD6 Code for backtick character.<br>
+              <strong>Converting/parsing</strong>: Converting a srting into a number .toString() method. Parsing a string into a number .parseInt() method
+              <br><br>
+              <span class="text-success"><strong>Chapter 3 (page 118) - Array, logic and loops</strong></span><br>
+              <strong>Array:</strong> It is recommended to use const myArray = []; to create an array.<br>
+
+            </div>
             <div class="tab-pane fade" id="list-exercises" role="tabpanel" aria-labelledby="list-exercises-list">
               <!-- Exercises -->
               <div class="row">
-              <div class="card" style="width: 15rem;margin-right:30px;">
-                <img class="card-img-top" src="../images/ninja.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Quiz Ninja</h5>
-                  <p class="card-text">Initial Template - Chapter 2-4 Novice to Ninja</p>
-                  <a href="exercises/index.html" class="btn btn-primary">Visit</a>
+                <div class="card" style="width: 15rem;margin-right:30px;">
+                  <img class="card-img-top" src="../images/ninja.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Quiz Ninja</h5>
+                    <p class="card-text">Initial Template - Chapter 2-4 Novice to Ninja</p>
+                    <a href="exercises/index.html" class="btn btn-primary">Visit</a>
+                  </div>
+                </div>
+                <div class="card" style="width: 15rem;margin-right:30px;">
+                  <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Team exercises</h5>
+                    <p class="card-text">Week 2 <br> Functions</p>
+                    <a href="exercises/team-week2.html" class="btn btn-primary">Visit</a>
+                  </div>
                 </div>
               </div>
-              <div class="card" style="width: 15rem;margin-right:30px;">
-                <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Team exercises</h5>
-                  <p class="card-text">Week 2 <br> Functions</p>
-                  <a href="exercises/index.html" class="btn btn-primary">Visit</a>
-                </div>
-              </div>
-              </div>
-            
-              
-              
-
             </div>
-            <div class="tab-pane fade" id="list-questions" role="tabpanel" aria-labelledby="list-questions-list">No questions so far</div>
-            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+            <div class="tab-pane fade" id="list-questions" role="tabpanel" aria-labelledby="list-questions-list">
+              <h3>Questions</h3>
+                ¿What method whould we use to convert an object like object.element into a string in order to show it in the DOM?
+            </div>
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+              <img src="../images/construction.png" alt="construction image">
+              In construccion</div>
           </div>
         </div>
       </div>

@@ -1,1 +1,8 @@
-Working on my portfolio style mostly with bootstrap -
+1 - What did I do since the last meeting?
+	This is the first meeting so there is nothing to add.
+2 - What am I going to do next?
+	I am goin to work on my portfolio. I want to include some bootstrap group-list.
+	I always used jquery on my projects. The challenge is to add bootstrap classess with raw javascript.
+3 - What are my blockers?
+	My blocker is also my passion for detail. I always take large projects instead of keep it simple. 
+	I do not want to spend much time in style and just focus on the reading material.
