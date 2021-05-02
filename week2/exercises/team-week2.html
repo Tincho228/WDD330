@@ -15,10 +15,11 @@
 <body>
     
 
-    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
         <h1>Team assingment - Week 2</h1>
         <div class="form-group">
-            <label for="">Insert button</label>
+            <label for="">Insert number</label>
             <input class="form-control" type="text" id="number">
             <button class="btn btn-primary" onclick="read()">Send Value</button>
         </div>
@@ -26,9 +27,9 @@
         <p>The result is</p>
         <div id="result"></div>
     </div>
+    </div>
     <script>
         function read(){
-            
             const number = document.getElementById("number").value;
             let sum = 0;
             for (var i = 1; i <= number; i++){
