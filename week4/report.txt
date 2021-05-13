@@ -3,10 +3,11 @@ Report Week 4
 What did I do since the last meeting?
 Still reading assignment material. I watched a couple of tutorials of youtube about callback functions.
 Maps vs Objects. I find images or diagrams more instructive. I looked after that too. 
- 
+I did the event exercises in chapter 7
+I watched a couple of tutorials about n-tier applications with javascript. Something like MVC model in php or nodeJS.
 
 What am I going to do next?
-
+Work in my first projects of week 4. I took a look at it.
 
 
 What are my blockers?
