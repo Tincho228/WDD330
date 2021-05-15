@@ -1,8 +1,9 @@
 /* STEP 2 */
-$(document).ready(function(){
-let oTurn;
+$(document).ready(function(){ /* Making sure the page loads before reading variables */ 
+let oTurn; 
 const x = "x";
 const o = "o";
+
 function start(){
 const boxElement = $('.box'); /*Selecting all boxes*/ 
 Array.from(boxElement).forEach(box => {
@@ -11,7 +12,7 @@ Array.from(boxElement).forEach(box => {
 }
 function handle(e){
     const cell = e.target;
-    const currentMark = oTurn ?  o : x ;
+    const currentMark = oTurn ?  o : x ; 
     placemark(cell, currentMark);
     swapTurns();
 }

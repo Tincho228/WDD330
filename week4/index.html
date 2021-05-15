@@ -55,21 +55,44 @@
             <div class="tab-pane fade show active" id="list-notes" role="tabpanel" aria-labelledby="list-notes-list">
               <h3>Notes</h3>
 
-              <!-- CHAPTER 5 NOTES -->
-              <p class="text-success"><strong>Chapter 5 (page 194)</strong></p>
-              <li><strong>Objects:</strong> If a property’s value is a function, it is known as a method. Calling a method superman.fly()<br>
-              Finding all properties of an object: for(const key in superman) {console.log(key + ": " + superman[key]);} Very usefull to see what we are dealing with.<br>
-              Deleting properties delete superman.fly 
+              <!-- CHAPTER 8 NOTES -->
+              <p class="text-success"><strong>Chapter 8 - Forms </strong></p>
+              <li><strong>Accessing form elements:</strong><br>
+                const form = document.forms[0];  Gives you the target. Pay attention to the plural<br>
+                const form_two = document.getElementsByTagName('form')[0];<br>
+                const form_three = document.forms.search;<br>
+                const form_four = document.forms['search'];<br>
+                const [input,button] = form.elements; // Collecion of html elements<br>
+                const input_two = form.searchInput; // Calling it by name<br>
               </li>
               <li><strong>JSON: </strong>Is a Data storage format very popular on this days. It does not allow functions as values.<br>
               Parse method takes a string of JSON format  and returns an OBJECT in JavaScript. Stringify method does the opposite</li>
            
 
-              <!-- CHAPTER 6 NOTES -->
-              <p class="text-success"><strong>Chapter 6 (page 246) - Document Object Model</strong></p>
-              <li><strong>Array:</strong> No notes so far ...still reading</li>
+              <!-- CHAPTER 9 NOTES -->
+              <p class="text-success"><strong>Chapter 9  - The Window Object</strong></p>
+              <li><strong>Window method</strong> <br>
+                  window.location.href = 'https://www.sitepoint.com/javascript/' redirect a page<br>
+                  reload() method can be used to force a reload of the current page.</li>
+              <li><strong>Cookies</strong><br>
+                  Cookie creation: const expiryDate = new Date(); <br>
+                  const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;<br>
+                  expiryDate.setTime(tomorrow);<br>
+                  document.cookie = `name=Batman;secure expires=${ expiryDate.toUTCString()}`; SECURE to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network:<br><hr>
+                  Reading a cookie: const cookies = document.cookie.split("; ");<br>
+                for (crumb of cookies){<br>
+                    const [key,value] = crumb.split("=");<br>
+                    console.log(`The value of ${key} is ${value}`);<br>
+                }<br>
+                --------------------------------<br>
+                The value of name is Batman<br>
+                The value of hero is true<br>
+                The value of city is Gotham</li><br><hr>
+                  Deleting cookie: document.cookie = 'name=Batman; expires=Thu, 01 Jan 1970 00:00:01 GMT';<br>
+                  To remove a cookie, you need to set it to expire at a time in the past.
+                  If a cookie is a session cookie, it will expire when the tab or window is closed.
               
-              <!-- CHAPTER 7 NOTES -->
+              <!-- CHAPTER 15 NOTES -->
               <p><span class="text-success"><strong>Chapter 7 (page ) - Events</strong></span></p>
               <li><strong>Events:</strong> No notes</li>
 
@@ -91,6 +114,14 @@
                     <h5 class="card-title">Team exercises</h5>
                     <p class="card-text">Week 4 <br> Board 3x3</p>
                     <a href="exercises/team-week4.html" class="btn btn-primary">Visit</a>
+                  </div>
+                </div>
+                <div class="card" style="width: 15rem;margin-right:10px;margin-bottom:15px;">
+                  <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Novice to Ninja</h5>
+                    <p class="card-text">Week 8 <br> Forms</p>
+                    <a target="_blank" href="exercises/forms.html" class="btn btn-primary">Visit</a>
                   </div>
                 </div>
               </div>

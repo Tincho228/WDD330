@@ -3,13 +3,14 @@ What did I do since the last meeting?
 I have being reading most of the time about methods. Team activity preparation was great.
 I tried to understand arrow functions and how to use them. I have quite a challenge to remember everything
 about arrays, objects, maps, sets and JSON files. 
+Quiz ninja has some good examples about how to build a web application with javascript and only using objects.
 
 What am I going to do next?
 
-This week is my final week to update all of my readings back to normal. At last, I had my Sitepoint premimum access code.
-I want to learn more about ES6 syntax declaration and see more tutorial on arrow functions.
+
+
 
 What are my blockers?
 
-Callback functions are not easy to understand. I have used NODEJS before but still, it is something I do not understand completely.
-I allways use two questions: are how do we call it and how do we use it. That is a common error in me. I should see more about the definition, pros and cons.
+Still trying to understand the n-tier object model that javascript has. Pretty amazing how it goes from one callback function to another.
+Organize myself between all the informmation the Reading assignent has vs my curiosity for learning new things on other javascript subjects. 

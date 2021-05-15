@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://byui-cit.github.io/cit261/solutions/week03/index-START2.html -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Forms</title>
+</head>
+
+<body>
+  <form name='search' action='/search'>
+    <input name='searchInput'>
+    <button type='submit'>Search</button>
+  </form>
+  <script>
+    const form = document.forms['search'];
+    const input = form.searchInput;
+    form.addEventListener('submit', search, false);
+
+    function search() {
+      console.log(' Form Submitted and value sticked');
+      input.value = "Sticked";
+    }
+  </script>
+
+</body>
+
+</html>
