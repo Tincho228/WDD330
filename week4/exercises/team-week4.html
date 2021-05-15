@@ -5,7 +5,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -17,36 +16,44 @@
     }
     #main-board{
       
-      width:600px;
-      height: 600px;
+      width:300px;
+      height: 300px;
       display: flex;
       flex-wrap: wrap;
       margin:30px auto;
     }
     #main-board > div {
-      width: 200px;
-      height: 200px;
+      width: 100px;
+      height: 100px;
       border:1px solid lightgray;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      font-size:60px;
     }
 
   </style>
   <body>
       <div id="main-board">
+        <div class="box" style="border-top:none; border-left:none"></div>
+        <div class="box" style="border-top:none;"></div>
+        <div class="box" style="border-top:none; border-right:none;"></div>
+        <div class="box" style="border-left:none;"></div>
         <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" style="border-right:none;"></div>
+        <div class="box" style="border-left:none; border-bottom:none"></div>
+        <div class="box" style="border-bottom:none"></div>
+        <div class="box" style="border-right:none; border-bottom:none"></div>
       </div>
+      <div class="row justify-content-center" >
+      <button class="btn btn-info" onclick="clear()">Reset</button>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="team-week4.js"></script>
   </body>
-  <script src="team-week4.js"></script>
+  
 </html>
