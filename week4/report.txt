@@ -5,11 +5,15 @@ Still reading assignment material. I watched a couple of tutorials of youtube ab
 Maps vs Objects. I find images or diagrams more instructive. I looked after that too. 
 I did the event exercises in chapter 7
 I watched a couple of tutorials about n-tier applications with javascript. Something like MVC model in php or nodeJS.
+Still reading all the chapters even those which are not mentioned in the reading assignment.
+Finally contacted Nicolas. 
 
 What am I going to do next?
-Work in my first projects of week 4. I took a look at it.
-
+I would like to read chapter 15, MVC frameworks. I guess that is really important to organize our web applications.
+Start working on the app project.
+Meeting objectives: Making arrangements for next meeting with Tania and Nicolas.
 
 What are my blockers?
-
+Still trying to understand the n-tier object model that javascript has. Pretty amazing how it goes from one callback function to another.
+Organize myself between all the informmation the Reading assignent has vs my curiosity for learning new things on other javascript subjects. 
 

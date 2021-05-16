@@ -1,4 +1,17 @@
 //Added from page 189
+function random(a,b=1) {
+    // if only 1 argument is provided, we need to swap the values of a and b
+    if (b === 1) {
+        [a,b] = [b,a];
+    }
+    return Math.floor((b-a+1) * Math.random()) + a;
+}
+function shuffle(array) {
+    for (let i = array.length; i; i--) {
+        let j = random(i)-1;
+        [array[i - 1], array[j]] = [array[j], array[i - 1]];
+    }
+}
 const quiz = [{
     name: "Superman",
     realName: "Clark Kent"
@@ -63,6 +76,7 @@ countdown() {
         }
     },
 start(quiz) {
+    console.log('start() invoked');
     this.secondsRemaining = 20;
     this.timer = setInterval( this.countdown , 1000 );
     this.questions = [...quiz];
@@ -71,6 +85,13 @@ start(quiz) {
     this.ask();
 },
 ask(){
+    console.log('ask() invoked');
+    if(this.questions.length > 0) {
+    shuffle(this.questions);
+    this.question = this.questions.pop();
+    const question = `What is ${this.question.name}'s real name?`;
+    view.render(view.question,question);}
+    /*console.log('ask() invoked');
     if(this.questions.length > 0) {
         this.question = this.questions.pop();
         const question = `What is ${this.question.name}'s real name?`;
@@ -78,9 +99,10 @@ ask(){
     }
     else {
         this.gameOver();
-    }
+    }*/
 },
 check(event){
+    console.log('check(event) invoked');
     event.preventDefault();
     const response = view.response.answer.value;
     const answer = this.question.realName;
@@ -95,6 +117,7 @@ check(event){
     this.ask();
 },
 gameOver(){
+    console.log('gameOver() invoked');
     view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
     view.teardown();
     clearInterval(this.timer);
