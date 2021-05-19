@@ -91,15 +91,6 @@ ask(){
     this.question = this.questions.pop();
     const question = `What is ${this.question.name}'s real name?`;
     view.render(view.question,question);}
-    /*console.log('ask() invoked');
-    if(this.questions.length > 0) {
-        this.question = this.questions.pop();
-        const question = `What is ${this.question.name}'s real name?`;
-        view.render(view.question,question);
-    }
-    else {
-        this.gameOver();
-    }*/
 },
 check(event){
     console.log('check(event) invoked');
