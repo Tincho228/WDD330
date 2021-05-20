@@ -1,7 +1,9 @@
 Report Week 4
 
 What did I do since the last meeting?
+I inserted a new section in my projects page called troubleshooting. There, I will write all the problems and solutions founded.
 Watched some videos about Class Declarations in Javascript because I wanted it to clear some differences with Objects.
+MVC object model.
 
 What am I going to do next?
 
