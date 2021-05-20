@@ -1,4 +1,5 @@
-//create an array of hikes
+/*   Data that we are going to work with  */
+
 const hikeList = [
     {
       name: "Bechler Falls",
@@ -33,40 +34,18 @@ const hikeList = [
         "Take Highway 20 north to Ashton. Turn right into the town and continue through. Follow that road for a few miles then turn left again onto the Cave Falls road. Drive to until you see the sign for Bechler Meadows on the left. Turn there. There is a parking area at the trailhead."
     }
   ];
-  
-  const imgBasePath = "https://byui-cit.github.io/cit261/examples/";
-  //on load grab the array and insert it into the page
-  window.addEventListener("load", () => {
-    showHikeList();
-  });
-  
-  function showHikeList() {
-    const hikeListElement = document.getElementById("hikes");
-    hikeListElement.innerHTML = "";
-    renderHikeList(hikeList, hikeListElement);
-  }
-  
-  function renderHikeList(hikes, parent) {
-    hikes.forEach(hike => {
-      parent.appendChild(renderOneHike(hike));
-    });
-  }
-  function renderOneHike(hike) {
-    const item = document.createElement("li");
-  
-    item.innerHTML = ` <h2>${hike.name}</h2>
-          <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
-          <div>
-                  <div>
-                      <h3>Distance</h3>
-                      <p>${hike.distance}</p>
-                  </div>
-                  <div>
-                      <h3>Difficulty</h3>
-                      <p>${hike.difficulty}</p>
-                  </div>
-          </div>`;
-  
-    return item;
-  }
-  
+
+/* Hike Model - It inneracts with the database and the controller */
+
+export default class Hikemodel {
+    constructor(){
+        // We need a constructor...but in this case it isn't doing much
+    }
+    getAllHikes() {
+        // should return a list of all the hikes.
+    }
+    getHikeByName(hikeName) {
+        // filter the hikes for the record identified by hikeName and return it
+        return ;
+    }
+}
