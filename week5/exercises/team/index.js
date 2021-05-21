@@ -2,6 +2,8 @@ import HikesController from './HikesController';
 
 const HikesController = new HikesController();
 
+HikesController.showHikeList();
+
 /* The next step is to let our HTML know about our
  modules. In the index.js file import in your Controller,
  create an instance of the class, then call the showHikeList()

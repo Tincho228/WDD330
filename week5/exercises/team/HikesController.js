@@ -1,7 +1,7 @@
 /* THIS IS THE CONTROLLER */
-
+/*
 import HikeModel from './HikeModel.js';
-import HikesView from './HikesView.js';
+import HikesView from './HikesView.js';*/
 
 // Hike controller
 export default class HikesController {
@@ -13,6 +13,7 @@ export default class HikesController {
   }
   
   showHikeList() {
+    console.log("showhikelist");
     //  this will get called each time we need to display our full hike list. It should grab the list of hikes from the Model, and then send them to the view.
   }
 
