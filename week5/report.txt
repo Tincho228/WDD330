@@ -4,10 +4,11 @@ What did I do since the last meeting?
 I inserted a new section in my projects page called troubleshooting. There, I will write all the problems and solutions founded.
 Watched some videos about Class Declarations in Javascript because I wanted it to clear some differences with Objects.
 MVC object model.
+I have been working on the team assignment. Actually we had a couple of problems to understand the solution. I feel more comfortable with the MVC model.
 
 What am I going to do next?
-
+This week I am going to focus on the todo app.  Specially on trello assignments. 
 
 What are my blockers?
- 
+Assimilate the Javascript MVC model. 
 

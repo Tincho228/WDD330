@@ -42,6 +42,7 @@ const hikeList = [
   export default class Hikes {
     constructor(elementId) {
       this.parentElement = document.getElementById(elementId);
+      console.log(this.parentElement);
       // we need a back button to return back to the list. This will build it and hide it. When we need it we just need to remove the 'hidden' class
       this.backButton = this.buildBackButton();
     }
@@ -61,8 +62,7 @@ const hikeList = [
     // show one hike with full details in the parentElement
     showOneHike(hikeName) {
       const clickedName = hikeName.currentTarget.dataset.name;
-      let hikePosition = this.getHikeByName(clickedName);
-      console.log(hikePosition);
+      let hikePosition = this.getAllHikes().find(hike => hike.name === clickedName);
       
     }
     // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.

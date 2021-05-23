@@ -1,8 +1,8 @@
-import HikesController from './HikesController';
+import HikesController from './HikesController.js';
 
-const HikesController = new HikesController();
+const myHikesController = new HikesController('hikes');
 
-HikesController.showHikeList();
+myHikesController.showHikeList();
 
 /* The next step is to let our HTML know about our
  modules. In the index.js file import in your Controller,

@@ -95,8 +95,16 @@
                   <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Team exercises</h5>
-                    <p class="card-text">Week 5 <br></p>
-                    <a href="exercises/team-week5.html" class="btn btn-primary">Visit</a>
+                    <p class="card-text">Week 5 - Hike app - Class Solution <br></p>
+                    <a href="exercises/team-second/index.html" class="btn btn-primary">Visit</a>
+                  </div>
+                </div>
+                <div class="card" style="width: 15rem;margin-right:10px;margin-bottom:15px;">
+                  <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Team exercises</h5>
+                    <p class="card-text">Week 5 - Hike app - MVC Solution <br></p>
+                    <a href="exercises/team-mvc/index.html" class="btn btn-primary">Visit</a>
                   </div>
                 </div>
               </div>
@@ -114,8 +122,10 @@
                 In StackOverflow I had this answer. <a href="https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local">StackOverflow Link</a><br>
                 I finally found it. I should have open my file on Live Server. <a href="../images/trouble_liveServer.JPG">See image</a>  
               </li> 
-    
-              
+              <li>Cannot read property 'name' of 'undefined'</li> I was calling my function<br>
+               <strong>document.addEventLisenter('click', this.hikeModel.getAllHikes)</strong> without a problem but then my function was not recognized. After 6 hours of trying. I found it in the instructor solution<br>
+               <strong>document.addEventLisenter('click', () => {this.hikeModel.getAllHikes();})</strong> For some reason my function was not being recognized my Hikesmodel.js<br>
+               Still looking for answers.
               </div>
           </div>
         </div>
