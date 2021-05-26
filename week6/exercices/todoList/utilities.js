@@ -10,4 +10,6 @@ add a touchend event listener to an element for mobile with a click event fallba
 * @param {function} callback The callback function to run
 
 */
-function onTouch(elementSelector, callback) { }
+function onTouch(elementSelector, callback) {
+    
+ }
