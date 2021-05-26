@@ -36,7 +36,7 @@ function readFromLS(key) {
           
           return todosList.filter(todo => todo.completed === false);
           
-        case 'completed':
+        case 'complete':
           
           return todosList.filter(todo => todo.completed === true);      
           

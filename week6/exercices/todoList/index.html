@@ -15,11 +15,12 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center bg-light" style="height:100vh">
+    <div class="d-flex justify-content-center align-items-center bg-light">
         <div class="col-sm-12 col-md-6 bg-dark shadow p-3 mb-5 bg-body rounded" style="margin: 10px auto; padding:30px 15px">
             <h3 class="text-center text-light" style="padding-bottom:20px;">TODOS</h3>
             <ul class="list-group" style="margin-bottom:5px;" id="todosParent">
                 
+             <!-- To Do LIST Here -->
                 
             </ul>
             <ul class="list-group" style="margin-bottom:10px;">
@@ -29,9 +30,9 @@
                         
                         <div class="d-flex align-items-center">
                             Filter &nbsp;
-                            <button class="btn btn-outline-dark" style="margin-right:5px">ALL</i>
-                                <button class="btn btn-outline-dark" style="margin-right:5px">ACTIVE</button>
-                                <button class="btn btn-outline-dark" style="margin-right:5px">COMPLETED</button>
+                            <button id="btnAll" class="btn btn-outline-dark" style="margin-right:5px">ALL</i>
+                                <button id="btnActive" class="btn btn-outline-dark" style="margin-right:5px">ACTIVE</button>
+                                <button id="btnComplete" class="btn btn-outline-dark" style="margin-right:5px">COMPLETED</button>
                         </div>
                     </div>
                 </li>

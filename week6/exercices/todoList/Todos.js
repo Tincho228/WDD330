@@ -7,7 +7,7 @@ import * as utilitiesModule from "./utilities.js";
 export default class Todos {
     constructor(elementId) {
       // set a variable with the parent element our todo list will be built in
-      this.todosParent = document.getElementById(elementId);
+      this.todosParent = utilitiesModule.qs(elementId);
       // and the key we will use to read/write from localStorage
       this.todosKey = "key";
       this.todoList = null;
@@ -19,17 +19,23 @@ export default class Todos {
     It should get called when a todo is added, or removed, and when the Todos class is instantiated.*/
     listTodos(){
         const list = Array.from(lsModule.readFromLS());
-        console.log(list);
         renderTodoList(list, this.todosParent);
+        const btnComplete = utilitiesModule.qs('#btnComplete');
+        this.onTouch(btnComplete, this.showTodosComplete());
     }
    
-
     // It renders a list of all completed tasks
-    showTodosComplete(){}
-
+    showTodosComplete(){
+        const list = Array.from(lsModule.readFromLS('complete'));
+        renderTodoList(list, this.todosParent);
+    }
     
     // It renders a list of all active tasks
-    showTodoActive(){}
+    showTodoActive(){
+        const list = Array.from(lsModule.readFromLS('active'));
+        this.todosParent.innerHTML = null;
+        renderTodoList(list, this.todosParent);
+    }
 
     /*Add a method to the Todos class called addTodo. 
     It should grab the input in the html where users enter the text of the task, then send that along with the key to a SaveTodo() function. 
@@ -46,6 +52,10 @@ export default class Todos {
     removeTodo(){}
 
     filterTodo(){}
+
+    onTouch(elementSelector, callback){
+        elementSelector.addEventListener('click', e => {this.showTodosComplete(e)});
+    }
   }
 
 /******************** */
@@ -66,7 +76,7 @@ function renderOneTodoList(todo){
     item.innerHTML = ` <div class="d-flex align-items-center justify-content-between">
         ${todo.content}
         <div class="d-flex">
-            <button id="btnCompleted" class="btn btn-secondary" style="margin-right:5px" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mark as done"><i class="fas fa-check"></i></i>
+            <button id="btnCheck" class="btn btn-secondary" style="margin-right:5px" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mark as done"><i class="fas fa-check"></i></i>
             <button id="btnRemove" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
     </div> `;
@@ -85,4 +95,6 @@ function saveTodo(task, key) { }
     check the contents of todoList, a local variable containing a list of ToDos. If it is null then pull the list of todos from localstorage, update the local variable, and return it
     @param {string} key The key under which the value is stored under in LS @return {array} The value as an array of objects*/
     
-function getTodos(key) { }
+function getTodos(key) {
+
+ }
