@@ -6,7 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -38,11 +39,10 @@
                 </li>
 
             </ul>
-            <form>
+            <form id="form1">
                 <div class="row justify-content-between" style="padding:15px">
-                    <input type="text" id="exampleText" style="width:90%; padding-left:10px;"
-                        placeholder="Enter task">
-                    <button class="btn btn-success" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <input type="text" id="content" style="width:90%; padding-left:10px;" name="content" placeholder="Enter task">
+                    <button type="button" id="btnSubmit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
             </form>
 

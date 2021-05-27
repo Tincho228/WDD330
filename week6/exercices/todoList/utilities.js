@@ -7,7 +7,7 @@ do a querySelector lookup @param {string} selector The selector passed to queryS
 function qs(selector) { 
     return document.querySelector(selector);
 }
-function qss(selector) {
+function qss(selector) { 
     return document.querySelectorAll(selector);
 }
 /*
@@ -17,11 +17,13 @@ elementSelector The selector for the element to attach the listener to
 
 */
 function onTouch(elementSelector, callback) {
-    elementSelector.addEventListener('touchend', () => {callback();});
+    elementSelector.addEventListener('touchend', function(evt) {
+        evt.preventDefault();;
+        callback});
  }
 
 export {
     qs,
+    qss,
     onTouch,
-    qss
 }
