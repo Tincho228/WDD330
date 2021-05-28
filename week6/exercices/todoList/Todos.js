@@ -27,9 +27,10 @@ export default class Todos {
     const btnSubmit = utilitiesModule.qs('#btnSubmit');
     const btnRemove = utilitiesModule.qss('#btnRemove'); // Node List
     const btnCheck = utilitiesModule.qss('#btnCheck'); // Node List
-    btnComplete.addEventListener('touchend', () => {
+    /*btnComplete.addEventListener('touchend', () => {
       this.showTodosComplete();
-    })
+    })*/
+    utilitiesModule.onTouch(btnComplete, this.showTodosComplete.bind(this));
     btnActive.addEventListener('touchend', () => {
       this.showTodosActive();
     })
@@ -60,7 +61,7 @@ export default class Todos {
     renderTodoList(list, this.todosParent);
   }
 
-  /*Add a method to the Todos class called addTodo. It should grab the input in the html where users enter the text of the task, then send that along with the key to a SaveTodo() function. Then update the display with the current list of tasks*/
+  /* It should grab the input in the html where users enter the text of the task, then send that along with the key to a SaveTodo() function. Then update the display with the current list of tasks*/
   addTodo() {
       const id = new Date().getTime();
       const content = utilitiesModule.qs('#content').value;
@@ -78,6 +79,10 @@ export default class Todos {
   checkTodo(btn) {
     btn.classList.toggle("btn-success")
     console.log("check")
+  }
+  // Filter all the active tasks
+  filterTodo(){
+
   }
 }
 

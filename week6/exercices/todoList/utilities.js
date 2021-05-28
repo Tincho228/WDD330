@@ -18,8 +18,8 @@ elementSelector The selector for the element to attach the listener to
 */
 function onTouch(elementSelector, callback) {
     elementSelector.addEventListener('touchend', function(evt) {
-        evt.preventDefault();;
-        callback});
+        evt.preventDefault();
+        callback()});
  }
 
 export {
