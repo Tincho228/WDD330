@@ -68,7 +68,7 @@ export default class Todos {
       })
       btnCheck.forEach(btn => {
         btn.addEventListener('click', e => {
-          this.checkTodo(btn)
+          this.checkTodo(btn, e.currentTarget.dataset.id)
         })
       })
     }
@@ -124,8 +124,10 @@ export default class Todos {
   removeTodo(e) {
     lsModule.removeToLS(e);
   }
-  checkTodo(btn) {
-    btn.classList.toggle("btn-success")
+  checkTodo(element, key) {
+    console.log(element);
+    console.log(key);
+    element.classList.toggle("btn-success");
 
   }
   // Filter all the active tasks
