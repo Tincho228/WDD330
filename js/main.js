@@ -26,6 +26,10 @@ const links = [
     {
       label: "Week5",
       url: "week5/index.html"
+    },
+    {
+      label: "Week6 : Todo App",
+      url: "week6/index.html"
     }
   ]
 for (var i=0; i < links.length; i++){
