@@ -112,10 +112,12 @@ export default class Todos {
   }
   removeTodo(e) {
     lsModule.removeToLS(e);
+    this.listTodos();
   }
   checkTodo(element, key) {
     element.classList.toggle("btn-success");
     lsModule.checkToLS(key)
+    this.listTodos();
   }
 }
 
