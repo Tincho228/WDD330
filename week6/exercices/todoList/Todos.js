@@ -17,86 +17,134 @@ export default class Todos {
 
   /*Add a method to the Todos class called listTodos(). It should use the renderTodoList function to output our todo list when called.
   It should get called when a todo is added, or removed, and when the Todos class is instantiated.*/
-    listTodos() {
+  listTodos() {
     this.todosParent.innerHTML = null;
-    const list = Array.from(lsModule.readFromLS());
-    renderTodoList(list, this.todosParent);
-    const btnComplete = utilitiesModule.qs('#btnComplete');
-    const btnActive = utilitiesModule.qs('#btnActive');
-    const btnAll = utilitiesModule.qs('#btnAll');
-    const btnSubmit = utilitiesModule.qs('#btnSubmit');
-    const btnRemove = utilitiesModule.qss('#btnRemove'); // Node List
-    const btnCheck = utilitiesModule.qss('#btnCheck'); // Node List
-    utilitiesModule.onTouch(btnComplete, this.showTodosComplete.bind(this));
-    utilitiesModule.onTouch(btnActive, this.showTodosActive.bind(this));
-    utilitiesModule.onTouch(btnAll, this.listTodos.bind(this));
-    
-    this.showTodoBadge();
+    const list = lsModule.readFromLS();
+    if (!list) {
+      console.log("No tasks");
+      renderEmptyList(this.todosParent)
+      const btnSubmit = utilitiesModule.qs('#btnSubmit');
+      const btnComplete = utilitiesModule.qs('#btnComplete');
+      const btnActive = utilitiesModule.qs('#btnActive');
+      const btnAll = utilitiesModule.qs('#btnAll');
+      const btnRemove = utilitiesModule.qss('#btnRemove'); // Node List
+      const btnCheck = utilitiesModule.qss('#btnCheck'); // Node List
+      btnSubmit.addEventListener('click', this.addTodo);
+      utilitiesModule.onTouch(btnComplete, this.showTodosComplete.bind(this));
+      utilitiesModule.onTouch(btnActive, this.showTodosActive.bind(this));
+      utilitiesModule.onTouch(btnAll, this.listTodos.bind(this));
+      this.showTodoBadge();
+      btnRemove.forEach(btn => {
+        btn.addEventListener('click', e => {
+          this.removeTodo(e.currentTarget.dataset.id)
+        })
+      })
+      btnCheck.forEach(btn => {
+        btn.addEventListener('click', e => {
+          this.checkTodo(btn)
+        })
+      })
+    } else {
+      Array.from(list);
+      renderTodoList(Array.from(list), this.todosParent);
+      const btnComplete = utilitiesModule.qs('#btnComplete');
+      const btnActive = utilitiesModule.qs('#btnActive');
+      const btnAll = utilitiesModule.qs('#btnAll');
+      const btnSubmit = utilitiesModule.qs('#btnSubmit');
+      const btnRemove = utilitiesModule.qss('#btnRemove'); // Node List
+      const btnCheck = utilitiesModule.qss('#btnCheck'); // Node List
+      utilitiesModule.onTouch(btnComplete, this.showTodosComplete.bind(this));
+      utilitiesModule.onTouch(btnActive, this.showTodosActive.bind(this));
+      utilitiesModule.onTouch(btnAll, this.listTodos.bind(this));
 
-    btnSubmit.addEventListener('click', this.addTodo);
-    
-    btnRemove.forEach(btn => {
-      btn.addEventListener('click', e => {this.removeTodo(e.currentTarget.dataset.id)})
-    })  
-    btnCheck.forEach(btn => {
-      btn.addEventListener('click', e => {this.checkTodo(btn)})
-    })
-    
+      this.showTodoBadge();
+
+      btnSubmit.addEventListener('click', this.addTodo);
+
+      btnRemove.forEach(btn => {
+        btn.addEventListener('click', e => {
+          this.removeTodo(e.currentTarget.dataset.id)
+        })
+      })
+      btnCheck.forEach(btn => {
+        btn.addEventListener('click', e => {
+          this.checkTodo(btn)
+        })
+      })
+    }
   }
   // It counts all the tasks left
-  showTodoBadge(){
+  showTodoBadge() {
     const badge = utilitiesModule.qs('#badge');
-    const listActive = Array.from(lsModule.readFromLS('active'));
-    badge.innerHTML = listActive.length;
+    const listActive = lsModule.readFromLS('active');
+    if(!listActive){
+      badge.innerHTML = "0";  
+    }else{
+    badge.innerHTML = Array.from(listActive).length;}
   }
   // It renders a list of all completed tasks
   showTodosComplete() {
+     
     this.todosParent.innerHTML = null;
-    const list = Array.from(lsModule.readFromLS('complete'));
-    renderTodoList(list, this.todosParent);
+    const list = lsModule.readFromLS('complete');
+    if (!list){
+      renderEmptyList(this.todosParent);
+    }else{
+      renderTodoList(Array.from(list), this.todosParent);}
   }
 
   // It renders a list of all active tasks
   showTodosActive() {
     this.todosParent.innerHTML = null;
-    const list = Array.from(lsModule.readFromLS('active'));
-    renderTodoList(list, this.todosParent);
+    const list = lsModule.readFromLS('active');
+    if (!list){
+      renderEmptyList(this.todosParent);
+    }else{
+    renderTodoList(Array.from(list), this.todosParent);}
   }
 
   /* It should grab the input in the html where users enter the text of the task, then send that along with the key to a SaveTodo() function.
      Then update the display with the current list of tasks*/
   addTodo() {
-      const id = new Date().getTime();
-      
-      const content = utilitiesModule.qs('#content').value;
-      if(content){
+    const id = new Date().getTime();
 
-        let task = {
-          id:id,
-          content:content,
-          completed:false
-        }
-        saveTodo(task); 
+    const content = utilitiesModule.qs('#content').value;
+    if (content) {
+
+      let task = {
+        id: id,
+        content: content,
+        completed: false
       }
-      console.log("There is no name");
+      saveTodo(task);
+      return
+    }
+    console.log("There is no name");
   }
   removeTodo(e) {
     lsModule.removeToLS(e);
   }
   checkTodo(btn) {
     btn.classList.toggle("btn-success")
-    
+
   }
   // Filter all the active tasks
-  filterTodo(){
-  }
+  filterTodo() {}
 }
 
 /******************** */
 /*  RENDER FUNCTIONS  */
 /******************** */
 /* foreach todo in list, build a li element for the todo, and append it to element @param {array} list The list of tasks to render to HTML @param {element} element The DOM element to insert our list elements into.
-*/
+ */
+function renderEmptyList(parent){
+  const li = document.createElement("li");
+  li.setAttribute("class", "list-group-item text-danger");
+  li.style.fontSize = "20px";
+  li.textContent = "No tasks";
+  parent.appendChild(li);
+}
+
 function renderTodoList(list, parent) {
   list.forEach(todo => {
     parent.appendChild(renderOneTodoList(todo));
@@ -132,10 +180,10 @@ function saveTodo(task) {
   @param {string} key The key under which the value is stored under in LS @return {array} The value as an array of objects*/
 
 function getTodos(key) {
-  
+
 }
 
 export {
   getTodos,
-  
+
 }

@@ -34,16 +34,30 @@ function readFromLS(key) {
   switch (key) {
     case 'active':
       const todosListActive = JSON.parse(localStorage.getItem("Todos List"));
-      return todosListActive.filter(todo => todo.completed === false);
+      if(todosListActive){
+        if(todosListActive.length != 0){
+          return todosListActive.filter(todo => todo.completed === false);}
+        }
+      return null;
 
     case 'complete':
       const todosListComplete = JSON.parse(localStorage.getItem("Todos List"));
-      return todosListComplete.filter(todo => todo.completed === true);
+      if(todosListComplete){
+        if(todosListComplete.length != 0){
+          return todosListComplete.filter(todo => todo.completed === true);}
+      }
+      return null;
 
 
     default:
       const todosListAll = JSON.parse(localStorage.getItem("Todos List"));
-      return todosListAll;
+      if(todosListAll){
+        if(todosListAll.length != 0){
+        return todosListAll}
+      }
+      const todosListNew = []
+      localStorage.setItem("Todos List", JSON.stringify(todosListNew));
+      return null ;
   }
 }
 /*
@@ -53,7 +67,12 @@ write an array of objects to local storage under the provided key @param {string
 function writeToLS(data) {
   let key = "Todos List"
   const existing = JSON.parse(localStorage.getItem(key))
-  existing[existing.length] = data;
+  if(existing){
+    existing[existing.length] = data;
+    localStorage.setItem(key, JSON.stringify(existing));
+    return;
+  }
+  existing[0] = data;
   localStorage.setItem(key, JSON.stringify(existing));
   return;
   
