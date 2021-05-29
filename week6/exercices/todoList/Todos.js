@@ -12,9 +12,6 @@ export default class Todos {
     this.todosKey = "key";
     this.todoList = null;
   }
-
-
-
   /*Add a method to the Todos class called listTodos(). It should use the renderTodoList function to output our todo list when called.
   It should get called when a todo is added, or removed, and when the Todos class is instantiated.*/
   listTodos() {
@@ -23,29 +20,28 @@ export default class Todos {
     if (!list) {
       console.log("No tasks");
       renderEmptyList(this.todosParent)
-      const btnSubmit = utilitiesModule.qs('#btnSubmit');
       const btnComplete = utilitiesModule.qs('#btnComplete');
       const btnActive = utilitiesModule.qs('#btnActive');
       const btnAll = utilitiesModule.qs('#btnAll');
+      const btnSubmit = utilitiesModule.qs('#btnSubmit');
       const btnRemove = utilitiesModule.qss('#btnRemove'); // Node List
       const btnCheck = utilitiesModule.qss('#btnCheck'); // Node List
-      btnSubmit.addEventListener('click', this.addTodo);
       utilitiesModule.onTouch(btnComplete, this.showTodosComplete.bind(this));
       utilitiesModule.onTouch(btnActive, this.showTodosActive.bind(this));
       utilitiesModule.onTouch(btnAll, this.listTodos.bind(this));
+      btnSubmit.addEventListener('click', this.addTodo);
       this.showTodoBadge();
       btnRemove.forEach(btn => {
-        btn.addEventListener('click', e => {
+        btn.addEventListener('touchend', e => {
           this.removeTodo(e.currentTarget.dataset.id)
         })
       })
       btnCheck.forEach(btn => {
-        btn.addEventListener('click', e => {
-          this.checkTodo(btn)
+        btn.addEventListener('touchend', e => {
+          this.checkTodo(btn, e.currentTarget.dataset.id)
         })
       })
     } else {
-      Array.from(list);
       renderTodoList(Array.from(list), this.todosParent);
       const btnComplete = utilitiesModule.qs('#btnComplete');
       const btnActive = utilitiesModule.qs('#btnActive');
@@ -56,18 +52,15 @@ export default class Todos {
       utilitiesModule.onTouch(btnComplete, this.showTodosComplete.bind(this));
       utilitiesModule.onTouch(btnActive, this.showTodosActive.bind(this));
       utilitiesModule.onTouch(btnAll, this.listTodos.bind(this));
-
       this.showTodoBadge();
-
-      btnSubmit.addEventListener('click', this.addTodo);
-
+      btnSubmit.addEventListener('touchend', this.addTodo);
       btnRemove.forEach(btn => {
-        btn.addEventListener('click', e => {
+        btn.addEventListener('touchend', e => {
           this.removeTodo(e.currentTarget.dataset.id)
         })
       })
       btnCheck.forEach(btn => {
-        btn.addEventListener('click', e => {
+        btn.addEventListener('touchend', e => {
           this.checkTodo(btn, e.currentTarget.dataset.id)
         })
       })
@@ -84,7 +77,6 @@ export default class Todos {
   }
   // It renders a list of all completed tasks
   showTodosComplete() {
-     
     this.todosParent.innerHTML = null;
     const list = lsModule.readFromLS('complete');
     if (!list){
@@ -101,37 +93,30 @@ export default class Todos {
       renderEmptyList(this.todosParent);
     }else{
     renderTodoList(Array.from(list), this.todosParent);}
+    
   }
 
   /* It should grab the input in the html where users enter the text of the task, then send that along with the key to a SaveTodo() function.
      Then update the display with the current list of tasks*/
   addTodo() {
     const id = new Date().getTime();
-
     const content = utilitiesModule.qs('#content').value;
+    
     if (content) {
-
-      let task = {
-        id: id,
-        content: content,
-        completed: false
-      }
-      saveTodo(task);
-      return
-    }
+      let task = { id: id, content: content, completed: false }
+      saveTodo(task);      
+      //this.listTodos();
+    }else{
     console.log("There is no name");
+    }
   }
   removeTodo(e) {
     lsModule.removeToLS(e);
   }
   checkTodo(element, key) {
-    console.log(element);
-    console.log(key);
     element.classList.toggle("btn-success");
-
+    lsModule.checkToLS(key)
   }
-  // Filter all the active tasks
-  filterTodo() {}
 }
 
 /******************** */
@@ -157,10 +142,15 @@ function renderTodoList(list, parent) {
 function renderOneTodoList(todo) {
   const item = document.createElement("li");
   item.setAttribute("class", "list-group-item");
+  if(todo.completed === true){
+    var current_class = "btn btn-success"; 
+  }else{
+    var current_class = "btn btn-secondary";
+  }
   item.innerHTML = ` <div class="d-flex align-items-center justify-content-between">
         <span id="${todo.content}">${todo.content}</span>
         <div class="d-flex">
-            <button id="btnCheck" data-id=${todo.id} class="btn btn-secondary" style="margin-right:5px" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mark as done"><i class="fas fa-check"></i></i>
+            <button id="btnCheck" data-id=${todo.id}  class="${current_class}" style="margin-right:5px" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mark as done"><i class="fas fa-check"></i></i>
             <button id="btnRemove" data-id=${todo.id} class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
     </div> `;
