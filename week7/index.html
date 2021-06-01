@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Week6</title>
+  <title>Week7</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,7 +30,7 @@
     </header>
     <section class="sectionNotes">
       <!-- Week Title  -->
-      <h2 class="text-center borderDiv" style="margin:10px 0px;">Week6</h2>
+      <h2 class="text-center borderDiv" style="margin:10px 0px;">Week7</h2>
       <!-- Week Content -->
       <div class="row">
         <div class="col-sm-12 col-md-4">
@@ -54,7 +54,7 @@
             <!-- Notes label -->
             <div class="tab-pane fade show active" id="list-notes" role="tabpanel" aria-labelledby="list-notes-list">
               <h3>Notes</h3>
-
+              
               <!-- CHAPTER 13 NOTES -->
               <p class="text-success"><strong>No notes this week </strong></p>
               
@@ -64,7 +64,7 @@
               <!-- Exercises label -->
               <div class="row">
                 <div class="card" style="width: 15rem;margin-right:10px;margin-bottom:15px;">
-                  <img class="card-img-top" src="../images/todoApp.JPG" alt="Card image cap">
+                  <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Week 6</h5>
                     <p class="card-text">Project TODO app <br></p>
@@ -76,7 +76,18 @@
             <!-- Questions label -->
             <div class="tab-pane fade" id="list-questions" role="tabpanel" aria-labelledby="list-questions-list">
               <h3>Questions</h3>
-              <li>No questions so far...still reading</li>
+              <li><strong>What are the pro's & con's of local storage vs. server-side storage?</strong><br>
+                Local Storage: It is fast, simple, but no scalability or availability. There is a limit to how many disks you can attached to a single system and how fast you can read from it via the controller If you system fails, it takes down the disks along with it. You can quickly bring up applications on a new system, but the data cannot be moved over quickly.
+                Network Storage: It is sharable, scalable and highly available. You can access the data from multiple servers simultaneously.
+              </li>
+              <li><strong>When I should use local storage and database?</strong><br>
+                You use Local Storage to handle information, that is only relevant to the particular client where you are running your web app or your mobile we app.<br>
+                On the other hand you use MySQL for permanent storage, that is, information that not only matters to your local user, but also to others.<br>
+                There must be a million ways to use each one, but to give you an example, I’d use local storage to save preference information about your user (Color Scheme/Skin of your App, Reminders, Personal Scores if you’re developing a game, etc.)<br>
+                You could then use MySQL to save information such as Prices for your Services/Products, Log Information, Financial transactions, etc. <a href="https://www.quora.com/What-are-the-pros-cons-of-local-storage-vs-server-side-storage">Source</a>
+              </li>
+              <br>
+
 
             </div>
             <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
