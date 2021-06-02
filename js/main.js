@@ -30,6 +30,10 @@ const links = [
     {
       label: "Week6 : Todo App",
       url: "week6/index.html"
+    },
+    {
+      label: "Week7 : AJAX request",
+      url: "week7/index.html"
     }
   ]
 for (var i=0; i < links.length; i++){
