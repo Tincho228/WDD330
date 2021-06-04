@@ -22,7 +22,7 @@
     item.innerHTML = ` <h2 class="text-center bg-dark text-light" style="padding: 30px auto">${hike.name}</h2>
     <div class="row">
     <div class="col-sm-6 image" data-name ="${hike.name}"><img class="img-fluid" src="${this.imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
-    <div>
+    <div class="col-sm-6">
             <div>
                 <h3>Distance</h3>
                 <p>${hike.distance}</p>
@@ -36,21 +36,22 @@
   }
   renderOneHikeFull(hike, parentElement) {
     const item = document.createElement("li");
-    console.log(hike[0].name);/*
     item.setAttribute("class", "list-group-item list-group-item-action");
-    item.innerHTML = ` <h2 class="text-center bg-dark text-light" style="padding: 30px auto">${hike.name}</h2>
+    item.innerHTML = ` <h2 class="text-center bg-dark text-light" style="padding: 30px auto">${hike[0].name}</h2>
     <div class="row">
-    <div class="col-sm-6 image" data-name ="${hike.name}"><img class="img-fluid" src="${this.imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
-    <div>
+    <div class="col-sm-6 image" data-name ="${hike[0].name}"><img class="img-fluid" src="${this.imgBasePath}${hike[0].imgSrc}" alt="${hike[0].imgAlt}"></div>
+    <div class="col-sm-6">
             <div>
                 <h3>Distance</h3>
-                <p>${hike.distance}</p>
-            </div>
-            <div>
+                <p>${hike[0].distance}</p>
                 <h3>Difficulty</h3>
-                <p>${hike.difficulty}</p>
+                <p>${hike[0].difficulty}</p>
+                <h3>Description</h3>
+                <p>${hike[0].description}</p>
+                <h3>Directions</h3>
+                <p>${hike[0].directions}</p>
             </div>
-    </div></div>`;*/
+    </div></div>`;
     parentElement.appendChild(item);
   }
 }
