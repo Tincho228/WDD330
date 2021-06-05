@@ -7,3 +7,6 @@ body {
   li {
     list-style-type: none;
   }
+.bg-lightgray {
+  background-color: #f2f2f2;
+}
