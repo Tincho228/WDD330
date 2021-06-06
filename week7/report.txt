@@ -1,11 +1,16 @@
-Report Week 5
+Report Week 7
 
 What did I do since the last meeting?
-Searching about Pros and Cons of LocalStorage and Server-side Storage
+I worked on some solutions for some questions I wrote in my portfolio.
+I look for exercises on for loops, specially foreach ones.
+Searching about Pros and Cons of LocalStorage and Server-side Storage.
+I participated on the discussion board.
 
 What am I going to do next?
-
+Try to make a chat group with my team because we are having some problems to meet. Use Googlemeet or hangouts. 
+Finish the team assignment of week7 
 
 What are my blockers?
-Still working on ES6 syntax declarations: for for-of 
+Team meeting.
+More participation in discussion board. 
 
