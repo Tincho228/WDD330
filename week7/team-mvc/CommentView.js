@@ -5,10 +5,10 @@ export default class CommentView {
         // will need this
         this.parentElement = document.getElementById(elementId);
     }
-  renderCommentList(commentList) {
+  renderCommentList(commentList, parentElement) {
     // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
       commentList.forEach(comment => {
-      this.parentElement.appendChild(this.renderOneComment(comment));
+      parentElement.appendChild(this.renderOneComment(comment));
     })
   }
   renderOneComment(comment){

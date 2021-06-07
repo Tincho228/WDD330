@@ -11,17 +11,17 @@ const commentList = [{
         content: "Image of Bechler Falls"
     },
     {
-        name: "Bechler Falls",
+        name: "Teton Canyon",
         date: "falls.jpg",
         content: "Image of Bechler Falls"
     },
     {
-        name: "Bechler Falls",
+        name: "Denanda Falls",
         date: "falls.jpg",
         content: "Image of Bechler Falls"
     },
     {
-        name: "Bechler Falls",
+        name: "Denanda Falls",
         date: "falls.jpg",
         content: "Image of Bechler Falls"
     }
@@ -36,10 +36,10 @@ export default class CommentModel {
         // should return a list of all the hikes.
         return commentList;
     }
-    /*
-        getHikeByName(hikeName) {
+    getComentByName(hikeName) {
             // filter the hikes for the record identified by hikeName and return it
-            return hikeList.filter(hike => hike.name === hikeName);
+        return commentList.filter(comment => comment.name === hikeName);
+     
             
-        }*/
+    }
 }
