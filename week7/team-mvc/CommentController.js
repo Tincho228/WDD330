@@ -1,6 +1,7 @@
 /* THIS IS THE CONTROLLER */
 import CommentModel from './CommentModel.js';
 import CommentView from './CommentView.js';
+import * as utilitiesModule from "./utilities.js";
 
 // Comment Controller
 export default class CommentController {
@@ -9,6 +10,7 @@ export default class CommentController {
       // this is how our controller will know about the model and view...we add them right into the class as members.
       this.commentModel = new CommentModel();
       this.commentView = new CommentView(parentId);
+      this.btnForm = document.getElementById('commentForm');
       this.commentType = "hike";
     }
     
@@ -17,5 +19,7 @@ export default class CommentController {
       this.parentElement.innerHTML = null;
       const commentList = Array.from(this.commentModel.getAllComents());
       this.commentView.renderCommentList(commentList, this.parentElement);
+      // hide Comment Form
+      utilitiesModule.elementHide(this.btnForm);
     }
 }

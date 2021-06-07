@@ -40,12 +40,25 @@
         <!-- your hike list should be build here. -->
       </ul>
       <div class="d-flex justify-content-end">
-        <button id="btnBack" class="btn btn-info" style="margin-bottom:20px;">Go Back</button>
+        <button id="btnBack" class="btn btn-primary" style="margin-bottom:20px;">Go Back</button>
       </div>
-        <h2 class="bg-info text-light" style="padding:10px 20px;">Comments</h2>
-        <ul id="comments" style="padding:0px">
+      <h4 class="bg-info text-light" style="padding:10px 20px;">Comments</h4>
+      <ul id="comments" style="padding:0px">
         <!-- your comment list should be build here. -->
       </ul>
+      <div id="commentForm">
+        <form>
+          <div class="form-group">
+            <label class="text-info" for="exampleInputEmail1"><strong>Make a comment</strong> </label>
+            <input type="text" class="form-control" id="commentContent" aria-describedby="emailHelp"
+              placeholder="Enter a comment">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary">Submit comment</button>
+          </div>
+        </form>
+      </div>
 
     </div>
   </main>

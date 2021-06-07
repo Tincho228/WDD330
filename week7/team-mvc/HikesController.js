@@ -4,6 +4,7 @@ import HikesView from './HikesView.js';
 import CommentController from './CommentController.js';
 import CommentModel from './CommentModel.js';
 import CommentView from './CommentView.js';
+import * as utilitiesModule from "./utilities.js";
 // Hike controller
 export default class HikesController {
   constructor(parentId) {
@@ -12,6 +13,7 @@ export default class HikesController {
     this.hikeModel = new HikeModel();
     this.hikesView = new HikesView(parentId);
     this.btnBack = document.getElementById("btnBack");
+    this.btnForm = document.getElementById('commentForm');
     // Search for comment Parent in the DOM
     this.commentParentById = document.getElementById('comments');
     // Adding the comments variables
@@ -22,7 +24,7 @@ export default class HikesController {
   
   showHikeList() {
     this.parentElement.innerHTML = null;
-    this.elementHide(this.btnBack);
+    utilitiesModule.elementHide(this.btnBack)
     const hikeList = Array.from(this.hikeModel.getAllHikes());
     this.hikesView.renderHikeList(hikeList, this.parentElement);
     this.addHikeListener();
@@ -35,12 +37,15 @@ export default class HikesController {
     const hikeByName = this.hikeModel.getHikeByName(hikeName);
     this.parentElement.innerHTML = null;
     this.hikesView.renderOneHikeFull(hikeByName, this.parentElement);
-    this.elementShow(this.btnBack);
+    utilitiesModule.elementShow(this.btnBack);
     // Show the comment of the chosen hike
     const commentListbyName = this.commentModel.getComentByName(hikeName);
     // Clearing the list
     this.commentParentById.innerHTML = null;
+    // Show all comments by name
     this.commentView.renderCommentList(commentListbyName, this.commentParentById);
+    // Show the comment Form
+    utilitiesModule.elementShow(this.btnForm)
   }
   addHikeListener() {
     // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
