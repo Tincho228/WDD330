@@ -28,7 +28,8 @@ export default class HikesController {
     const hikeList = Array.from(this.hikeModel.getAllHikes());
     this.hikesView.renderHikeList(hikeList, this.parentElement);
     this.addHikeListener();
-    this.addGoBackListener(this.btnBack, this.showHikeList.bind(this));
+    // Add a listener to the back button
+    utilitiesModule.onTouch(this.btnBack, this.showHikeList.bind(this))
     //  this will get called each time we need to display our full hike list. It should grab the list of hikes from the Model, and then send them to the view.
     this.commentController.showCommentList();
   }
@@ -52,18 +53,6 @@ export default class HikesController {
     const items = document.querySelectorAll(".image");
       items.forEach(item => {
       item.addEventListener('click', e => {this.showOneHike(e.currentTarget.dataset.name);});
-    })
-  }
-  elementHide(element){
-    element.style.display = "none";
-  }
-  elementShow(element){
-    element.style.display = "block";
-  }
-  addGoBackListener(element, callback){
-    element.addEventListener("touchend", function(evt) {
-      evt.preventDefault();
-      callback()
     })
   }
 }
