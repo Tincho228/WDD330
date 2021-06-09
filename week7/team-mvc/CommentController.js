@@ -12,21 +12,38 @@ export default class CommentController {
     this.commentView = new CommentView(parentId);
     this.commentForm = document.getElementById('commentForm');
     this.btnForm = document.getElementById('btnForm');
-    this.commentType = "hike";
+    this.type = "hike";
   }
 
   showCommentList() {
     //full comment list
     this.parentElement.innerHTML = null;
     const commentList = Array.from(this.commentModel.getAllComents());
+    if(commentList.length === 0){
+      this.parentElement.innerHTML = '<p class="text-danger text-center">No comments to show</p>'
+    }else{
     this.commentView.renderCommentList(commentList, this.parentElement);
-    utilitiesModule.onTouch(this.btnForm, this.addComment);
+    }
+    this.btnForm.addEventListener('touchend', e => {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      this.addComment(e.currentTarget.dataset.name);
+    })
+    
     // hide Comment Form
     utilitiesModule.elementHide(this.commentForm);
+    
   }
-  addComment(hikename) {
-    const name = hikename
-    const id = new Date();
+  showOneHikeComments(hikeName){
+    const commentListbyName = this.commentModel.getComentByName(hikeName);
+    // Clearing the list
+    this.parentElement.innerHTML = null;
+    // Show all comments by name
+    this.commentView.renderCommentList(commentListbyName, this.parentElement);
+  }
+  addComment(hikeName, type) {
+    const name = hikeName;
+    const date = utilitiesModule.getDate();
     const content = document.getElementById('commentContent').value;
     if (content) {
       let newComment = {
@@ -34,10 +51,12 @@ export default class CommentController {
         date: date,
         content: content
       }
-      console.log(newComment);
+      this.commentModel.writeCommentToLS(newComment);
+      this.showOneHikeComments(hikeName);
+      
     } else {
       console.log("Please insert a comment");
     }
-    
   }
+
 }

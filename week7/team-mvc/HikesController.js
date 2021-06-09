@@ -13,7 +13,8 @@ export default class HikesController {
     this.hikeModel = new HikeModel();
     this.hikesView = new HikesView(parentId);
     this.btnBack = document.getElementById("btnBack");
-    this.btnForm = document.getElementById('commentForm');
+    this.btnForm = document.getElementById('btnForm');
+    this.commentForm = document.getElementById('commentForm');
     // Search for comment Parent in the DOM
     this.commentParentById = document.getElementById('comments');
     // Adding the comments variables
@@ -39,14 +40,17 @@ export default class HikesController {
     this.parentElement.innerHTML = null;
     this.hikesView.renderOneHikeFull(hikeByName, this.parentElement);
     utilitiesModule.elementShow(this.btnBack);
-    // Show the comment of the chosen hike
-    const commentListbyName = this.commentModel.getComentByName(hikeName);
+    this.commentController.showOneHikeComments(hikeName)
+    // Show the comment of the chosen hike 
+    // const commentListbyName = this.commentModel.getComentByName(hikeName);
     // Clearing the list
-    this.commentParentById.innerHTML = null;
+    // this.commentParentById.innerHTML = null;
     // Show all comments by name
-    this.commentView.renderCommentList(commentListbyName, this.commentParentById);
+    // this.commentView.renderCommentList(commentListbyName, this.commentParentById);
     // Show the comment Form
-    utilitiesModule.elementShow(this.btnForm)
+    utilitiesModule.elementShow(this.commentForm)
+    // Add name to the button
+    this.btnForm.setAttribute('data-name', hikeName);
   }
   addHikeListener() {
     // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 

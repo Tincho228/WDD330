@@ -11,8 +11,17 @@
       evt.preventDefault();
       callback()});
 }
+  function getDate(){
+    var d = new Date();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]  
+    var date = months[d.getMonth()] + " " + day[d.getDay()] + " " + d.getDay() + " at " + d.getHours() + ":" + d.getMinutes();
+    return date;
+    
+  }
   export {
       elementHide,
       elementShow,
       onTouch,
+      getDate
   }
