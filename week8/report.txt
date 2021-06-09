@@ -1,7 +1,7 @@
 Report Week 7
 
 What did I do since the last meeting?
-Still working on week7 Team assignment. Finishing Loading comments in the Local Storage.
+Still working on week7 Team assignment. Finishing Loading comments in the Local Storage. I learned so much with this activity.
 
 What am I going to do next?
  
