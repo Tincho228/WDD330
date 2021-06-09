@@ -34,6 +34,10 @@ const links = [
     {
       label: "Week7 : AJAX request",
       url: "week7/index.html"
+    },
+    {
+      label: "Week8 : Transform, Transitions",
+      url: "week8/index.html"
     }
   ]
 for (var i=0; i < links.length; i++){
