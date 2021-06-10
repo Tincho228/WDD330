@@ -1,22 +1,36 @@
-/*function api(){
-let result = document.getElementById('result');
-
-fetch('https://swapi.dev/api/people')
-  .then(response => response.json())
-  .then(data => console.log(data));
+/*function api() {
+    fetch('http://swapi.dev/api/people')
+        .then(response => response.json())
+        .then(data => {
+            let result = document.getElementById('result')
+            for (var i=0; i<data.results.length; i++){
+                console.log(data.results[i].name)
+            }
+            
+        });
 }
 api();*/
-async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-      method: 'GET', // *GET, POST, PUT, DELETE, etc.
-      body: 'JSON'
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-  }
-  postData('https://swapi.dev/api/people', { answer: 42 })
-  .then(data => {
-    console.log(data); // JSON data parsed by `data.json()` call
-    let result = document.getElementById('result');
-    result.innerHTML = data;
-  });
+       
+const url = 'http://swapi.dev/api/people'
+getMovies(url);
+async function getMovies(url){
+    try {
+        const response = await fetch (url, {
+
+        });
+        if (!response.ok){
+            throw Error(response.statusText)
+        } else{
+        const data = await response.json();
+        let result = document.getElementById('result')
+            for (var i=0; i<data.results.length; i++){
+                console.log(data.results[i].name)
+                const li = document.createElement("li");
+                li.innerHTML = data.results[i].name
+                result.appendChild(li);
+
+            }
+        }
+    } catch (error){
+        console.log(error);}
+}
