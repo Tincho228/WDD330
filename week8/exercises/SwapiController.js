@@ -7,7 +7,7 @@ export default class SwapiController {
         this.url = 'http://swapi.dev/api/people'
     }
     showResult() {
-        
+
         this.getPeople(this.url)     
     }
     async getPeople(url) {
