@@ -11,7 +11,6 @@ export default class SwapiController {
     }
     async showResult(url) {
         const data = await this.getPeople(url)
-        console.log(url)
         const pageCounter = utilitiesModule.pagination(data.count, 10)
         this.renderResult(data, this.parentElement)
         this.renderPagination(pageCounter, this.pageElement);
