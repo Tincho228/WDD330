@@ -5,8 +5,7 @@
   <title>Week8</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -121,6 +120,13 @@
                 <li>evt.stopImmediatePropagation(); // This is what I found to stop triggering the extra events. A second option to assign listeners<br>
                     element.ontouchend = () => {this.todo()}</li>
               </ol>
+              <li><strong>Mixed content Error:</strong>I was having this error..<br>
+                utilities.js:3 Mixed Content: The page at 'https://tincho228.github.io/WDD330-Martin/week8/exercises/index.html' was loaded over HTTPS,
+                but requested an insecure resource 'http://swapi.dev/api/people'.
+                This request has been blocked; the content must be served over HTTPS.
+
+                I found this on Stack Overflow: <a href="https://stackoverflow.com/questions/65044736/mixed-content-error-on-react-project-using-swapi-star-wars-api">Solution</a> 
+              </li>
 
             </div>
           </div>
