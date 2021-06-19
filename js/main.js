@@ -38,7 +38,12 @@ const links = [
     {
       label: "Week8 : Transform, Transitions",
       url: "week8/index.html"
+    },
+    {
+      label: "Week9",
+      url: "week9/index.html"
     }
+
   ]
 for (var i=0; i < links.length; i++){
 // Create an li element
