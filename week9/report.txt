@@ -1,16 +1,14 @@
 Report Week 9
 
 What did I do since the last meeting?
-Still working on week7 Team assignment. Finishing Loading comments in the Local Storage. I learned so much with this activity.
-I was able to meet with my team. 
-I was able to finish this week assignment.
-I worked on some troubleshooting.
+I have been working on the project proposal number 2. I know this application was ment to be offline. We are using LocalStorage as a data source. But I wanted to add more functionalities to the administrator.
+I hope it works out well.
+We worked hard with the team assignment. We spent like two hours this time.
+I finished the animation reading and saw some tutorial I wanted to use in my application.
 
 What am I going to do next?
-I would like to finish the animation reading.
- 
+Work hard developing my application. 
 
 What are my blockers?
-Using to much time on details.
-Learn more about Promises in Javascript. 
+I am not so good on mile tracking and scheduling my proposal.
 
