@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+.text-title {
+    font-family:'Bebas Neue', cursive !important;
+}
+.text-bodycopy {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+.bg-wrapper{
+    background-color: #40546a;
+}
+.bg-main {
+    background-color: #0b0e18
+    ;
+}
+.bg-highlight-rose {
+    background-color: #ff8484 !important;
+}
+.bg-highlight-green {
+    background-color: #62ac30 !important;
+
+}
+.bg-image-home {
+    background-image: url("./images/bg-home-2.jpg") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
