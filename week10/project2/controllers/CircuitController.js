@@ -1,6 +1,6 @@
+// Import modules
 import CircuitModel from '../models/CircuitModel.js';
 import CircuitView from '../views/CircuitView.js';
-
 
 
 export default class CircuitController {

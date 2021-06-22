@@ -1,4 +1,4 @@
-// It handles all the views - Receives data from the controller.
+
 
 export default class CircuitView {
     constructor(elementId) {
@@ -16,14 +16,19 @@ export default class CircuitView {
         item.setAttribute("class", "card");
         item.style.width = "18rem";
         item.style.margin = "10px";
+        item.style.border = "1px solid #40546a";
         item.innerHTML = `  <img class="card-img-top" src="./images/park.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h2 class="text-title text-light text-center"
+                                 style="position:absolute; 
+                                        top:25%;
+                                        left:50%;
+                                        transform: translate(-50%, -50%);"
+                                        >${circuit.name}</h2>
+                            <div class="card-body bg-main text-light">
+                                <h5 class="card-title text-bodycopy">${circuit.date}</h5>
+                                <p class="card-text">${circuit.description}</p>
+                                <a href="#" class="btn-sm btn-primary">Go somewhere</a>
                             </div> `
-
-        console.log(circuit.imgSrc)
         return item;
     }
 }
