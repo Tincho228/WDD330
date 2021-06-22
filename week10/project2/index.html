@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,64 +9,88 @@
     <!-- Styles CSS -->
     <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  </head>
-  <body>
-    
+</head>
+
+<body>
+
     <div class="row bg-wrapper justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-8 bg-main">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-main text-light">
                     <a class="navbar-brand" href="#"><img src="./images/logo.jpg" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#" id="home">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="#">Features</a>
-                        <a class="nav-item nav-link disabled" id="admin" href="#">Admin</a>
-                        <a class="nav-item nav-link" href="#" id="login"><i class="fas fa-user"></i> Login</a>
-                      </div>
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link active" href="#" id="home">Home <span
+                                    class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#">Features</a>
+                            <a class="nav-item nav-link disabled" id="admin" href="#">Admin</a>
+                            <a class="nav-item nav-link" href="#" id="login"><i class="fas fa-user"></i> Login</a>
+                        </div>
                     </div>
                 </nav>
                 <div class="hero bg-image-home">
                     <div class="jumbotron-fluid">
                         <div class="container">
-                            <h1 class="display-3 text-light text-title" style="padding-top:20px;">Choose your team!!!</h1>
-                            <p class="lead text-light text-bodycopy">Check all of our loops and circuits - Just for you..</p>
+                            <h1 class="display-3 text-light text-title" style="padding-top:20px;">Choose your team!!!
+                            </h1>
+                            <p class="lead text-light text-bodycopy">Check all of our loops and circuits - Just for
+                                you..</p>
                             <hr class="my-2 text-light">
                             <p class="text-light text-bodycopy">More info</p>
                             <p class="lead">
-                                <a class="btn btn-sm bg-highlight-green btn-lg text-light" href="#" role="button">Jumbo action name</a>
+                                <a class="btn btn-sm bg-highlight-green btn-lg text-light" href="#" role="button">Jumbo
+                                    action name</a>
                             </p>
                         </div>
                     </div>
                 </div>
             </header>
             <main>
-                <div id="circuitParent">
+                <div id="circuit" class="row justify-content-center">
+                
                     <!-- Display the circuits -->
+                
                 </div>
-                <div id="weatherParent">
+                <div id="weather">
                     <!-- Weather broadcast -->
                 </div>
             </main>
             <footer>
-                <div class="icon-box"><img class="img-fluid" src="./images/icon-fb.png" alt=""></div>
-                <div class="icon-box"></div>
-                <div class="icon-box"></div>
+                <h2 class="text-title text-light text-center" style="border-bottom: 1px solid whitesmoke;">Follow Us
+                </h2>
+                <div class="d-flex justify-content-center">
+                    <div class="icon-box" style="margin:10px"><img class="img-fluid" src="./images/icon-fb.png"
+                            alt="icon of facebook"></div>
+                    <div class="icon-box" style="margin:10px"><img class="img-fluid" src="./images/icon-tw.png"
+                            alt="icon of twitter"></div>
+                    <div class="icon-box" style="margin:10px"><img class="img-fluid" src="./images/icon-yout.png"
+                            alt="icon of twitter"></div>
+                </div>
+                <p class="text-light text-center">BikeRiders.com | All Rights Reserved | WDD-330</p>
             </footer>
         </div>
-        
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <script src="index.js" type="module"></script>
-  </body>
+</body>
+
 </html>
