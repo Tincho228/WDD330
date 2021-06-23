@@ -27,8 +27,11 @@ export default class CircuitView {
                             <div class="card-body bg-main text-light">
                                 <h5 class="card-title text-bodycopy">${circuit.date}</h5>
                                 <p class="card-text">${circuit.description}</p>
-                                <a href="#" class="btn-sm btn-primary">Go somewhere</a>
+                                <a href="#" class="btn-sm btn-primary btnId" data-id ="${circuit.id}">Go somewhere</a>
                             </div> `
         return item;
+    }
+    renderOneCircuitFull(){
+        console.log("new list details");
     }
 }

@@ -28,8 +28,15 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
 .icon-box {
     border-radius: 10px;
     border:1px solid orange ;
     width: 40px;
+}
+
+/**********ANIMATIONS ********/
+
+.weather-animation {
+    color:red;
 }

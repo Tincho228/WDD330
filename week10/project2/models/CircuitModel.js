@@ -1,32 +1,35 @@
 const circuitList = [{
+        id:"1",
         name: "Saint Martin Park Loop",
         imgSrc: "./images/park.jpg",
         imgAlt: "Image of Valle Grande",
         distance: "8 miles",
         difficulty: "Easy - Mountain Bike",
-        description: "Beautiful short loop along the Sain Martin Park streets",
+        description: "Beautiful short loop along the Saint Martin Park streets",
         directions: "Meeting point: Ballofet Avenue 562",
         date: "8:00 pm",
         teamLeader: "Ryan"
     },
     {
+        id:"2",
         name: "Saint Martin Park Loop",
         imgSrc: "./images/park.jpg",
         imgAlt: "Image of Valle Grande",
         distance: "8 miles",
         difficulty: "Easy - Mountain Bike",
-        description: "Beautiful short loop along the Sain Martin Park streets",
+        description: "Beautiful short loop along the Saint Martin Park streets",
         directions: "Meeting point: Ballofet Avenue 562",
         date: "8:00 pm",
         teamLeader: "Ryan"
     },
     {
+        id:"3",
         name: "Saint Martin Park Loop",
         imgSrc: "./images/park.jpg",
         imgAlt: "Image of Valle Grande",
         distance: "8 miles",
         difficulty: "Easy - Mountain Bike",
-        description: "Beautiful short loop along the Sain Martin Park streets",
+        description: "Beautiful short loop along the Saint Martin Park streets",
         directions: "Meeting point: Ballofet Avenue 562",
         date: "8:00 pm",
         teamLeader: "Ryan"
@@ -46,6 +49,10 @@ export default class CircuitModel {
         existing = []
         localStorage.setItem(key, JSON.stringify(existing));*/
         return circuitList;
+    }
+    getCircuitById(id){
+        // filter the circuits for the record identified by id and returns it
+        return circuitList.filter(circuit => circuit.id === id)
     }
     getComentByName(hikeName) {
         // filter the hikes for the record identified by hikeName and return it
