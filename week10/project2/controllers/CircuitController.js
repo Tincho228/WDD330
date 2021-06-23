@@ -10,7 +10,6 @@ export default class CircuitController {
         this.parentElement = document.getElementById(parentId);
         this.infoSection = document.getElementById("infoSection")
         this.btnBack = document.getElementById("btnBack")
-        console.log(this.infoSection);
         
     }
   
@@ -24,7 +23,7 @@ export default class CircuitController {
       }else{
       this.circuitView.renderCircuitList(circuitList, this.parentElement)
       }
-      this.addCircuitListenerbyClass(".btnId");
+      this.addListenerbyClass(".btnId");
     }
     showOneCircuit(id){
       const circuitById = this.circuitModel.getCircuitById(id)
@@ -35,7 +34,7 @@ export default class CircuitController {
       this.circuitView.renderOneCircuitFull(circuitById, this.parentElement)
       utilitiesModule.show(this.btnBack)
     }
-    addCircuitListenerbyClass(selector) {
+    addListenerbyClass(selector) {
       // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
       const items = document.querySelectorAll(selector);
         items.forEach(btn => {

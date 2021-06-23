@@ -31,7 +31,23 @@ export default class CircuitView {
                             </div> `
         return item;
     }
-    renderOneCircuitFull(){
-        console.log("new list details");
+    renderOneCircuitFull(circuitById, parentElement){
+        console.log(circuitById[0]);
+        parentElement.innerHTML = 
+                        `   <div class="col-sm-12 col-md-6">
+                                <h2 class="text-title text-light">${circuitById[0].name}</h2>
+                                <hr class="bg-light">
+                                <h4 class="text-light text-bodycopy">Team Leader</h4>
+                                <p class="text-bodycopy text-light">${circuitById[0].teamLeader}</p>
+                                <h4 class="text-light text-bodycopy">Description</h4>
+                                <p class="text-bodycopy text-light">${circuitById[0].description}</p>
+                                <h4 class="text-light text-bodycopy">Meeting</h4>
+                                
+                                <span class="text-title text-warning blinking" style="font-size: 40px">${circuitById[0].hour}</span>
+                                <span class="text-bodycopy text-light">${circuitById[0].date}</span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                ${circuitById[0].map}
+                            </div> `
     }
 }
