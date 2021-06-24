@@ -1,15 +1,19 @@
 // Import modules
 import CircuitModel from '../models/CircuitModel.js';
 import CircuitView from '../views/CircuitView.js';
+
+import WeatherController from '../controllers/WeatherController.js';
 import * as utilitiesModule from "../utilities.js";
 
 export default class CircuitController {
     constructor(parentId) {
         this.circuitModel = new CircuitModel();
         this.circuitView = new CircuitView();
+        this.weatherController = new WeatherController();
         this.parentElement = document.getElementById(parentId);
         this.infoSection = document.getElementById("infoSection")
         this.btnBack = document.getElementById("btnBack")
+        this.parentWeather = document.getElementById("weather");
         
     }
   
@@ -33,6 +37,7 @@ export default class CircuitController {
       // Show all comments by name
       this.circuitView.renderOneCircuitFull(circuitById, this.parentElement)
       utilitiesModule.show(this.btnBack)
+      this.weatherController.filterWeather(circuitById)
     }
     addListenerbyClass(selector) {
       // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 

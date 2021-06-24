@@ -4,6 +4,7 @@ export default class CircuitView {
     constructor(elementId) {
         // will need this
         this.parentElement = document.getElementById(elementId);
+        
     }
     renderCircuitList(circuitList, parentElement) {
         // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
@@ -27,28 +28,28 @@ export default class CircuitView {
                             <div class="card-body bg-main text-light">
                                 <h5 class="card-title text-bodycopy">${circuit.date}</h5>
                                 <p class="card-text">${circuit.description}</p>
-                                <a href="#" class="btn-sm btn-primary btnId" data-id ="${circuit.id}">Go somewhere</a>
+                                <a href="#" class="btn-sm btn-primary btnId" data-id ="${circuit.id}">Join Team</a>
                             </div> `
         return item;
     }
     renderOneCircuitFull(circuitById, parentElement){
-        console.log(circuitById[0]);
         parentElement.innerHTML = 
                         `   <div class="col-sm-12 col-md-6">
                                 <h2 class="text-title text-light">${circuitById[0].name}</h2>
                                 <hr class="bg-light">
+                                <span class="text-title text-success" style="font-size: 40px">${circuitById[0].date}</span>
+                                <span class="text-title text-warning blinking" style="font-size: 40px">&nbsp; ${circuitById[0].hour}</span>
                                 <h4 class="text-light text-bodycopy">Team Leader</h4>
                                 <p class="text-bodycopy text-light">${circuitById[0].teamLeader}</p>
                                 <h4 class="text-light text-bodycopy">Description</h4>
                                 <p class="text-bodycopy text-light">${circuitById[0].description}</p>
                                 <h4 class="text-light text-bodycopy">${circuitById[0].directions}</h4>
-                                <span class="text-title text-light" style="font-size: 40px">${circuitById[0].date}</span>
-                                <span class="text-title text-warning blinking" style="font-size: 40px">&nbsp; ${circuitById[0].hour}</span>
+                                
                                 
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <h2 class="text-light text-title text-right">Circuit Loop</h2>
                                 ${circuitById[0].map}
-                            </div> `
+                            </div>`
     }
 }
