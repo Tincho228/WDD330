@@ -21,7 +21,8 @@ const circuitList = [{
         difficulty: "Easy - Mountain Bike",
         description: "Beautiful short loop along the Saint Martin Park streets",
         directions: "Meeting point: Ballofet Avenue 562",
-        date: "8:00 pm",
+        date: "June, Thursday 3",
+        hour: "5:00 pm",
         map: '<iframe class="embed-responsive embed-responsive-16by9" src="https://www.google.com/maps/embed?pb=!1m32!1m12!1m3!1d65567.1607528891!2d-68.47232422797332!3d-34.603993802191404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m17!3e1!4m3!3m2!1d-34.574897!2d-68.4723242!4m3!3m2!1d-34.6071674!2d-68.3560095!4m3!3m2!1d-34.6297316!2d-68.3832139!4m3!3m2!1d-34.5752497!2d-68.4729669!5e0!3m2!1sen!2sar!4v1624475523856!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
         teamLeader: "Ryan"
     },
@@ -34,7 +35,9 @@ const circuitList = [{
         difficulty: "Easy - Mountain Bike",
         description: "Beautiful short loop along the Saint Martin Park streets",
         directions: "Meeting point: Ballofet Avenue 562",
-        date: "8:00 pm",
+        date:"June, Saturday 4",
+        hour: "10:00 pm",
+        map: '<iframe class="embed-responsive embed-responsive-16by9" src="https://www.google.com/maps/embed?pb=!1m32!1m12!1m3!1d65567.1607528891!2d-68.47232422797332!3d-34.603993802191404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m17!3e1!4m3!3m2!1d-34.574897!2d-68.4723242!4m3!3m2!1d-34.6071674!2d-68.3560095!4m3!3m2!1d-34.6297316!2d-68.3832139!4m3!3m2!1d-34.5752497!2d-68.4729669!5e0!3m2!1sen!2sar!4v1624475523856!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
         teamLeader: "Ryan"
     }
 ];

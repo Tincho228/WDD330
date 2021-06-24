@@ -41,12 +41,13 @@ export default class CircuitView {
                                 <p class="text-bodycopy text-light">${circuitById[0].teamLeader}</p>
                                 <h4 class="text-light text-bodycopy">Description</h4>
                                 <p class="text-bodycopy text-light">${circuitById[0].description}</p>
-                                <h4 class="text-light text-bodycopy">Meeting</h4>
+                                <h4 class="text-light text-bodycopy">${circuitById[0].directions}</h4>
+                                <span class="text-title text-light" style="font-size: 40px">${circuitById[0].date}</span>
+                                <span class="text-title text-warning blinking" style="font-size: 40px">&nbsp; ${circuitById[0].hour}</span>
                                 
-                                <span class="text-title text-warning blinking" style="font-size: 40px">${circuitById[0].hour}</span>
-                                <span class="text-bodycopy text-light">${circuitById[0].date}</span>
                             </div>
                             <div class="col-sm-12 col-md-6">
+                                <h2 class="text-light text-title text-right">Circuit Loop</h2>
                                 ${circuitById[0].map}
                             </div> `
     }
