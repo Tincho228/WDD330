@@ -1,10 +1,12 @@
 Report Week 10
 
 What did I do since the last meeting?
+I have been working on my proposal for 20hs more or less.
 
 
 What am I going to do next?
-
+Try to finish all main requirements.
+Then do the core challenges.
 
 What are my blockers?
 

@@ -5,7 +5,7 @@
   <title>Week 10</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -53,14 +53,25 @@
             <!-- Notes label -->
             <div class="tab-pane fade show active" id="list-notes" role="tabpanel" aria-labelledby="list-notes-list">
               <h3>Notes</h3>
-              <p class="text-success"><strong>Canvas Vs Svg</strong></p>
-              <li>Canvas allows for pixel manipulation</li>
-              <li>Every time you finish drawing a shape, the canvas no longer has access to that shape</li>
-              <li>There’s also no access to what’s drawn on the canvas via the DOM</li>
-              <li>SVG is accessible via the DOM.</li>
-              <li>If you use a lot of animations, SVG is better</li><br>
-              <h3>Managing the modern Front-end workflow</h3>
-              <p class="text-success"><strong>Canvas Vs Svg</strong></p>
+              <p class="text-success"><strong>Built in validation</strong></p>
+              <li>required</li>
+              <li>minlength and maxlength</li>
+              <li>min and max</li>
+              <li>type</li>
+              <li>pattern</li><br>
+
+              <p class="text-success"><strong>Constraint validation API</strong></p>
+              <li>validationMessage</li>
+              <li>validity</li>
+              <li>willValidate</li>
+              <li>checkValidity()</li>
+              <li>setCustomValidity(message)</li><br>
+
+              <p class="text-success"><strong>form novalidate</strong></p>
+              A key point here is that setting the novalidate attribute on the form is what stops the form from showing
+              its own error message bubbles, and allows us to instead display the custom error messages in the DOM in
+              some manner of our own choosing. <strong>See exercise</strong><br><br>
+
             </div>
 
             <div class="tab-pane fade" id="list-exercises" role="tabpanel" aria-labelledby="list-exercises-list">
@@ -69,16 +80,24 @@
                 <div class="card" style="width: 15rem;margin-right:10px;margin-bottom:15px;">
                   <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title">Week 9</h5>
-                    <p class="card-text">Img hover transition -  <br></p>
-                    <a href="../week9/exercises/img.html" class="btn btn-primary">Visit</a>
+                    <h5 class="card-title">Week 10</h5>
+                    <p class="card-text">Api validation - <br></p>
+                    <a href="../week10/exercises/api-validation.html" class="btn btn-primary">Visit</a>
                   </div>
                 </div>
                 <div class="card" style="width: 15rem;margin-right:10px;margin-bottom:15px;">
                   <img class="card-img-top" src="../images/team.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Week 10</h5>
-                    <p class="card-text">Project 2 -  <br></p>
+                    <p class="card-text">Built in validation - <br></p>
+                    <a href="../week10/exercises/built-in-validation.html" class="btn btn-primary">Visit</a>
+                  </div>
+                </div>
+                <div class="card" style="width: 15rem;margin-right:10px;margin-bottom:15px;">
+                  <img class="card-img-top" src="../images/project2.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Week 10</h5>
+                    <p class="card-text">Project 2 - <br></p>
                     <a href="../week10/project2/index.html" class="btn btn-primary">Visit</a>
                   </div>
                 </div>
@@ -87,10 +106,8 @@
             <!-- Questions label -->
             <div class="tab-pane fade" id="list-questions" role="tabpanel" aria-labelledby="list-questions-list">
               <h3>Questions</h3>
-              <li><strong>Concatinate CSS Files in ONE?</strong> </li>
+              No questions so far
               
-              <li><strong>Concatinate JS Files in ONE?</strong> </li>
-              <a href="https://stackoverflow.com/questions/301442/how-do-i-concatenate-javascript-files-into-one-file">Ant solution</a>  
               <br><br>
             </div>
             <!-- Troubleshooting label -->
