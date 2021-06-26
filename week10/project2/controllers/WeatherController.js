@@ -9,7 +9,6 @@ export default class WeatherController {
         this.imgUrlpath = "http://openweathermap.org/img/wn/"
         this.weatherModel = new WeatherModel();
         this.weatherView = new WeatherView(parentId);
-        console.log(this.parentElement)
     }
   
     async showCurrentWeather() {
@@ -23,15 +22,8 @@ export default class WeatherController {
     async showWeatherDetail(circuit){
       const result = await this.weatherModel.filterWeather(circuit)
       // Send the data to the weather view
-      console.log(this.parentElement)
-      this.weatherView.renderWeatherDetail(result)
-    }
-    addListenerbyClass(selector) {
-      // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
-      const items = document.querySelectorAll(selector);
-        items.forEach(btn => {
-        btn.addEventListener('touchend', e => {this.showOneCircuit(e.currentTarget.dataset.id);});
-      })
+      const parentElemment = document.getElementById("weather")
+      this.weatherView.renderWeatherDetail(result, parentElemment)
     }
   
   }

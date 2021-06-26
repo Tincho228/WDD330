@@ -22,10 +22,8 @@ export default class WeatherView {
                                     </div>`
     }
     renderWeatherDetail(details, parentElement){
-        console.log(this.parentElement)
-        /*
+        console.log(parentElement)
         const pathIcon = this.imgUrlpath + details.weather[0].icon+ "@2x.png";
-        parentElement.innerHTML = "details"
-        */
+        parentElement.innerHTML = `<h1 class="text-light">details</h1>`
     }
 }

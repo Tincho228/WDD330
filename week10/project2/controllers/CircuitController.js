@@ -13,8 +13,7 @@ export default class CircuitController {
         this.parentElement = document.getElementById(parentId);
         this.infoSection = document.getElementById("infoSection")
         this.btnBack = document.getElementById("btnBack")
-        this.parentWeather = document.getElementById("weather");
-        
+        this.parentWeather = document.getElementById("weather");   
     }
   
     showCircuitList() {
@@ -43,9 +42,8 @@ export default class CircuitController {
       // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
       const items = document.querySelectorAll(selector);
         items.forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.preventDefault()
-          this.showOneCircuit(e.currentTarget.dataset.id);});  
+          btn.ontouchend = e => {this.showOneCircuit(e.currentTarget.dataset.id);
+        }
       })
     }
   
