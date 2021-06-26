@@ -37,13 +37,15 @@ export default class CircuitController {
       // Show all comments by name
       this.circuitView.renderOneCircuitFull(circuitById, this.parentElement)
       utilitiesModule.show(this.btnBack)
-      this.weatherController.filterWeather(circuitById)
+      this.weatherController.showWeatherDetail(circuitById)
     }
     addListenerbyClass(selector) {
       // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
       const items = document.querySelectorAll(selector);
         items.forEach(btn => {
-        btn.addEventListener('click', e => {this.showOneCircuit(e.currentTarget.dataset.id);});
+        btn.addEventListener('click', e => {
+          e.preventDefault()
+          this.showOneCircuit(e.currentTarget.dataset.id);});  
       })
     }
   

@@ -30,11 +30,14 @@ async function getJSON(url) {
 }
 
 function getDay(unix) {
-    var date = new Date(unix * 1000);
+    var date = new Date(unix *1000);
     var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]  
+    var month = ["January","February","March","April","May","June","July","August","September","October","November","December"]
     // Will display time in 10:30:23 format
-    var result = day[date.getDay()]
-
+    let result = {
+        day: day[date.getDay()],
+        date: date.getDate()
+    }
     return result
 }
 
@@ -55,11 +58,9 @@ function getLocation() {
     if (!navigator.geolocation) {
         console.log('Geolocation is not supported by your browser')
     } else {
-
         navigator.geolocation.getCurrentPosition(success, error);
     }
 }
-
 export {
     hide,
     show,

@@ -26,7 +26,7 @@ export default class CircuitView {
                                         transform: translate(-50%, -50%);"
                                         >${circuit.name}</h2>
                             <div class="card-body bg-main text-light">
-                                <h5 class="card-title text-bodycopy">${circuit.date}</h5>
+                                <h5 class="card-title text-bodycopy">${circuit.day} ${circuit.date} <span class="text-warning">${circuit.hour}</span></h5>
                                 <p class="card-text">${circuit.description}</p>
                                 <a href="#" class="btn-sm btn-primary btnId" data-id ="${circuit.id}">Join Team</a>
                             </div> `
@@ -37,7 +37,7 @@ export default class CircuitView {
                         `   <div class="col-sm-12 col-md-6">
                                 <h2 class="text-title text-light">${circuitById[0].name}</h2>
                                 <hr class="bg-light">
-                                <span class="text-title text-success" style="font-size: 40px">${circuitById[0].date}</span>
+                                <span class="text-title text-success" style="font-size: 40px">${circuitById[0].day} ${circuitById[0].date}</span>
                                 <span class="text-title text-warning blinking" style="font-size: 40px">&nbsp; ${circuitById[0].hour}</span>
                                 <h4 class="text-light text-bodycopy">Team Leader</h4>
                                 <p class="text-bodycopy text-light">${circuitById[0].teamLeader}</p>
