@@ -1,4 +1,4 @@
-import { getLocation } from './utilities.js';
+import { getLocation, hide, show } from './utilities.js';
 import Quake from './Quake.js';
 import QuakesView from './QuakesView.js';
 
@@ -10,22 +10,26 @@ export default class QuakesController {
     this.parentElement = null;
     // let's give ourselves the option of using a location other than the current location by passing it in.
     this.position = position || {
-      //lat: 0,
-      //lon: 0
-      lat: -32.88376629083021,
-      lon: -68.84825863743842
+      lat: 0,
+      lon: 0
+      //lat: -32.88376629083021,
+      //lon: -68.84825863743842
     };
     // this is how our controller will know about the model and view...we add them right into the class as members.
     this.quakes = new Quake();
     this.quakesView = new QuakesView();
+    this.btnBack = document.getElementById("btnBack");
+    
   }
   async init() {
+    hide(this.btnBack)
     // use this as a place to grab the element identified by this.parent, do the initial call of this.initPos(), and display some quakes by calling this.getQuakesByRadius()
     this.parentElement = document.querySelector(this.parent);
-    //await this.initPos();
+    await this.initPos();
     this.getQuakesByRadius(100);
   }
   async initPos() {
+    
     // if a position has not been set
     if (this.position.lat === 0) {
       try {
@@ -49,12 +53,21 @@ export default class QuakesController {
     // render the list to html
     this.quakesView.renderQuakeList(quakeList, this.parentElement);
     // add a listener to the new list of quakes to allow drill down in to the details
-    this.parentElement.addEventListener('touchend', e => {
+    const ulist = document.querySelectorAll('li');
+    ulist.forEach(list => {
+        list.addEventListener("touchend", e => {
+          this.getQuakeDetails(e.currentTarget.dataset.id);
+        } )
+    })
+    /*this.parentElement.addEventListener('touchend', e => {
       this.getQuakeDetails(e.target.dataset.id);
-    });
+    });*/
   }
   async getQuakeDetails(quakeId) {
+    show(this.btnBack)
+    this.btnBack.addEventListener("touchend", this.init.bind(this))
+    const details = this.quakes.getQuakeById(quakeId)
     // get the details for the quakeId provided from the model, then send them to the view to be displayed
-   
+    this.quakesView.renderQuake(details,this.parentElement);
   }
 }
