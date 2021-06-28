@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+.text-title {
+    font-family: 'Bebas Neue', cursive !important;
+}
+
+.text-bodycopy {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+.bg-wrapper {
+    background-color: #40546a;
+}
+
+.bg-main {
+    background-color: #0b0e18;
+}
+
+.bg-highlight-orange {
+    background-color: orange !important;
+}
+
+.bg-highlight-green {
+    background-color: #62ac30 !important;
+
+}
+
+.bg-image-home {
+    background-image: url("./images/bg-home-2.jpg") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.icon-box {
+    border-radius: 10px;
+    border: 1px solid orange;
+    width: 40px;
+}
+
+.weather-sm {
+    width:300px;
+    display: block;
+    position: fixed;
+    height:160px;
+    text-align:right;
+    bottom: 25px;
+    left: 10px;
+    z-index: 999;
+    padding:10px;
+    border-radius:15px;
+    transform: translateX(-73%);
+    transition:.5s;
+}
+.weather-sm:hover {
+    border:1px solid orange;
+    background-color:#0b0e18db;
+    transform: translateX(-10%);
+    box-shadow: 6px 6px 20px #5f5e5d;
+    transition: .5s;
+    
+}
+
+
+/***************************************/
+/********** CIRCUITS ANIMATIONS ********/
+
+.blinking {
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
