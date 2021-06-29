@@ -14,7 +14,7 @@
 }
 
 .bg-main {
-    background-color: #0b0e18;
+    background-color: #383838;
 }
 
 .bg-highlight-orange {
@@ -55,14 +55,29 @@
     transition:.5s;
 }
 .weather-sm:hover {
-    border:1px solid orange;
+    border:1px solid #07fdff;;
     background-color:#0b0e18db;
     transform: translateX(-10%);
     box-shadow: 6px 6px 20px #5f5e5d;
     transition: .5s;
     
 }
-
+.temp-box {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:1px solid gray;
+    padding:10px 10px;
+    padding-bottom:0;
+    border-radius:15px;
+    font-size:20px;
+    margin:10px;
+    width:40%;
+    text-align:center;
+    box-shadow: 4px 4px 6px #07fdff;
+    
+}
 
 /***************************************/
 /********** CIRCUITS ANIMATIONS ********/

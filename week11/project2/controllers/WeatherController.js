@@ -15,8 +15,11 @@ export default class WeatherController {
       utilitiesModule.getLocation();
       const result = await utilitiesModule.getJSON(this.url)
       const pathIcon = this.imgUrlpath+result.current.weather[0].icon+"@2x.png";
-      this.parentElement.innerHTML = null;
-      this.weatherView.renderCurrentWeather(this.parentElement, result, pathIcon);
+      const parentElement = this.parentElement = document.getElementById("weather")
+      //this.parentElement.innerHTML = null;
+      //this.weatherView.renderCurrentWeather(this.parentElement, result, pathIcon);
+      parentElement.innerHTML = null
+      this.weatherView.renderCurrentWeather(parentElement, result, pathIcon);
       
     }
     async showWeatherDetail(circuit){

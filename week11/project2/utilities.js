@@ -50,8 +50,6 @@ function error() {
 function success(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-
-    console.log(latitude, longitude)
 }
 
 function getLocation() {

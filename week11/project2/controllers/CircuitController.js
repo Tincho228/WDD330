@@ -27,6 +27,7 @@ export default class CircuitController {
       this.circuitView.renderCircuitList(circuitList, this.parentElement)
       }
       this.addListenerbyClass(".btnId");
+      this.weatherController.showCurrentWeather();
     }
     showOneCircuit(id){
       const circuitById = this.circuitModel.getCircuitById(id)
@@ -36,6 +37,7 @@ export default class CircuitController {
       // Show all comments by name
       this.circuitView.renderOneCircuitFull(circuitById, this.parentElement)
       utilitiesModule.show(this.btnBack)
+      this.btnBack.ontouchend = this.showCircuitList.bind(this);
       this.weatherController.showWeatherDetail(circuitById)
     }
     addListenerbyClass(selector) {
