@@ -36,26 +36,36 @@ export default class WeatherView {
                                         </div>    
                                         <div class="d-flex flex-wrap justify-content-center text-light text-bodycopy">                                                          
                                             <div class="temp-box">
+                                                <div class="temp-box-body">
                                                 <p>Day</p>
                                                 <p>${details.temp.day}°</p>
+                                                </div>
                                             </div>
                                             <div class="temp-box">
+                                                <div class="temp-box-body">
                                                 <p>Max</p>
                                                 <p>${details.temp.max}°</p>
+                                                </div>
                                             </div>
                                             <div class="temp-box">
+                                                <div class="temp-box-body">
                                                 <p>Min</p>
                                                 <p>${details.temp.min}°</p>
+                                                </div>
                                             </div>
                                         
                                                                                               
                                             <div class="temp-box">
+                                                <div class="temp-box-body">
                                                 <p>Hum.</p>
                                                 <p>${details.humidity}% </p>
+                                                </div>
                                             </div>    
                                             <div class="temp-box">
+                                                <div class="temp-box-body">
                                                 <p>Wind</p>
                                                 <p>${details.wind_speed}</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- Weather broadcast right-->

@@ -41,8 +41,9 @@ export default class CircuitController {
       this.weatherController.showWeatherDetail(circuitById)
     }
     addListenerbyClass(selector) {
+      
       // for the stretch you will need to attach a listener to each of the listed hikes to watch for a touchend. 
-      const items = document.querySelectorAll(selector);
+      const items = Array.from(document.querySelectorAll(selector))
         items.forEach(btn => {
           btn.ontouchend = e => {this.showOneCircuit(e.currentTarget.dataset.id);
         }
