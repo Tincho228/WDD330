@@ -16,23 +16,22 @@ export default class AccountController {
     const pass = document.getElementById('password');
     const passError = document.querySelector('#password +span.error');
     const emailError = document.querySelector('#email + span.error');
-    const credentials = this.accountModel.getCredentials()
+    const credentials = Array.from(this.accountModel.getCredentials())
     // while typing
     email.addEventListener('input', function (event) {
       if (email.validity.valid) {
         emailError.textContent = ''; // Reset the content of the message
         emailError.className = 'error'; // Reset the visual state of the message
       } else {
-        showError();
+        showError(email, emailError);
       }
     });
     pass.addEventListener('input', function (event) {
-      console.log(pass.validity)
       if (pass.validity.valid) {
         passError.textContent = ''; // Reset the content of the message
         passError.className = 'error'; // Reset the visual state of the message
       } else {
-        showErrorPass();
+        showError(pass, passError);
       }
     });
     // after changing the whole value
@@ -40,55 +39,66 @@ export default class AccountController {
     pass.addEventListener('change', testPassword);
 
     //when the form gets submitted
-    form.addEventListener('submit', function (event) {
-      if (!email.validity.valid) {
-        event.preventDefault();
-        showError();  
-      }
-    });
+    form.addEventListener('submit', evaluate);
+    
 
-    function testEmail(evt){
+    
+
+    /************** HELPER FUNCTIONS ******** */
+    function evaluate(event){
+      event.preventDefault();
+      if (!email.validity.valid) {
+        showError(email, emailError);
+      }
+      if (!pass.validity.valid) {
+        showError(pass, passError);
+        return
+      }
+      if (!(credentials[0].user === email.value)) {
+        console.log("email does not match")
+        return
+      }
+      if (!(credentials[0].password === pass.value)) {
+        console.log("password does not match")
+        return
+      }
+      console.log("welcome")
+      return
+    }
+
+    function testEmail(evt) {
       let email = evt.target;
       email.setCustomValidity(''); //clear old message
       //built-in test for error based on type, pattern, and other attrs
       let currently = email.checkValidity();
-      if(currently){
-        let emReg = new RegExp('@gmail.com$','i');
-        if(emReg.test(email.value)=== false ){
+      if (currently) {
+        let emReg = new RegExp('@gmail.com$', 'i');
+        if (emReg.test(email.value) === false) {
           email.setCustomValidity("Must be a gmail address")
           email.reportValidity() // show the built in message
         }
       }
     }
-    function testPassword(evt){
-      let password =evt.target
-      email.setCustomValidity('')
+
+    function testPassword(evt) {
+      let password = evt.target
+      password.setCustomValidity('')
       let currently = password.checkValidity()
-      
+
     }
-    function showError() {
-      if (email.validity.valueMissing) {
-        emailError.textContent = 'You need to enter an e-mail address.';
-      } else if (email.validity.typeMismatch) {
-        emailError.textContent = 'Entered value needs to be an e-mail address.';
-      } else if (email.validity.tooShort) {
-        emailError.textContent =
-          `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;
+
+    function showError(data, element) {
+      if (data.validity.valueMissing) {
+        element.textContent = 'This information is required';
+      } else if (data.validity.typeMismatch) {
+        element.textContent = 'Entered value needs to be valid, try again';
+      } else if (data.validity.tooShort) {
+        element.textContent =
+          `Email should be at least ${ data.minLength } characters; you entered ${ data.value.length }.`;
       }
-      emailError.className = 'error active';
+      element.className = 'error active';
     }
-    function showErrorPass(){
-      if (pass.validity.valueMissing) {
-        passError.textContent = 'You need to enter an e-mail address.';
-      } else if (pass.validity.typeMismatch) {
-        emailError.textContent = 'Entered value needs to be an e-mail address.';
-      } else if (pass.validity.tooShort) {
-        passError.textContent =
-          `Email should be at least ${ pass.minLength } characters; you entered ${ pass.value.length }.`;
-      }
-      passError.className = 'error active';
-    }
-    
+
   }
 
 

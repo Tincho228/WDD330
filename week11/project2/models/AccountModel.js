@@ -10,5 +10,7 @@ export default class AccountModel {
     getCredentials(){
         return credentials;
     }
-
+    startSession(){
+        console.log("start session")
+    }
 }
