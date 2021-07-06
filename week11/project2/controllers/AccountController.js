@@ -1,14 +1,17 @@
 // Import modules
 import AccountModel from '../models/AccountModel.js';
-//import CircuitView from '../views/CircuitView.js';
+import AccountView from '../views/AccountView.js';
+
 
 export default class AccountController {
-  constructor(accountLink, loginLink) {
+  constructor(accountLink, loginLink, logoutLink) {
     this.accountLink = document.getElementById(accountLink)
     this.loginLink = document.getElementById(loginLink)
+    this.logoutLink = document.getElementById(logoutLink)
     this.btnSubmit = document.getElementById("btnSubmit")
     this.errorMMessage = document.getElementById("errorMMessage")
     this.accountModel = new AccountModel()
+    this.accountView = new AccountView(accountLink, loginLink, logoutLink)
   }
   accountInit() {
     const form = document.getElementsByTagName('form')[0];
@@ -16,22 +19,22 @@ export default class AccountController {
     const pass = document.getElementById('password');
     const passError = document.querySelector('#password +span.error');
     const emailError = document.querySelector('#email + span.error');
-    const credentials = Array.from(this.accountModel.getCredentials())
+    let credentials = Array.from(this.accountModel.getCredentials())
     // while typing
-    email.addEventListener('input', function (event) {
+    email.addEventListener('input', e => {
       if (email.validity.valid) {
         emailError.textContent = ''; // Reset the content of the message
         emailError.className = 'error'; // Reset the visual state of the message
       } else {
-        showError(email, emailError);
+        this.showError(email, emailError);
       }
     });
-    pass.addEventListener('input', function (event) {
+    pass.addEventListener('input', e => {
       if (pass.validity.valid) {
         passError.textContent = ''; // Reset the content of the message
         passError.className = 'error'; // Reset the visual state of the message
       } else {
-        showError(pass, passError);
+        this.showError(pass, passError);
       }
     });
     // after changing the whole value
@@ -39,32 +42,9 @@ export default class AccountController {
     pass.addEventListener('change', testPassword);
 
     //when the form gets submitted
-    form.addEventListener('submit', evaluate);
-    
-
-    
-
-    /************** HELPER FUNCTIONS ******** */
-    function evaluate(event){
-      event.preventDefault();
-      if (!email.validity.valid) {
-        showError(email, emailError);
-      }
-      if (!pass.validity.valid) {
-        showError(pass, passError);
-        return
-      }
-      if (!(credentials[0].user === email.value)) {
-        console.log("email does not match")
-        return
-      }
-      if (!(credentials[0].password === pass.value)) {
-        console.log("password does not match")
-        return
-      }
-      console.log("welcome")
-      return
-    }
+    form.addEventListener('submit', e => {
+      this.evaluate(e, pass, passError, email, emailError, credentials)
+    });
 
     function testEmail(evt) {
       let email = evt.target;
@@ -86,20 +66,41 @@ export default class AccountController {
       let currently = password.checkValidity()
 
     }
-
-    function showError(data, element) {
-      if (data.validity.valueMissing) {
-        element.textContent = 'This information is required';
-      } else if (data.validity.typeMismatch) {
-        element.textContent = 'Entered value needs to be valid, try again';
-      } else if (data.validity.tooShort) {
-        element.textContent =
-          `Email should be at least ${ data.minLength } characters; you entered ${ data.value.length }.`;
-      }
-      element.className = 'error active';
+  }
+  evaluate(e, pass, passError, email, emailError, credentials) {
+    e.preventDefault()
+    if (!pass.validity.valid) {
+      this.showError(pass, passError);
+      return
+    }
+    if (!(credentials[0].user === email.value)) {
+      console.log("email does not match")
+      this.errorMMessage.innerHTML = "Email incorrect, try again"
+      return
+    }
+    if (!(credentials[0].password === pass.value)) {
+      console.log("password does not match")
+      this.errorMMessage.innerHTML = "Password incorrect, try again"
+      return
     }
 
-  }
+    this.accountModel.startSession()
+    this.accountView.renderLoginChanges()
+    
 
+    $('#loginModal').modal('hide')
+    return
+  }
+  showError(data, element) {
+    if (data.validity.valueMissing) {
+      element.textContent = 'This information is required';
+    } else if (data.validity.typeMismatch) {
+      element.textContent = 'Entered value needs to be valid, try again';
+    } else if (data.validity.tooShort) {
+      element.textContent =
+        `Email should be at least ${ data.minLength } characters; you entered ${ data.value.length }.`;
+    }
+    element.className = 'error active';
+  }
 
 }

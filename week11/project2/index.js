@@ -3,7 +3,7 @@ import WeatherController from "./controllers/WeatherController.js";
 import AccountController from "./controllers/AccountController.js";
 const circuitController = new CircuitController('circuit');
 const weatherController = new WeatherController('weather');
-const accountController = new AccountController("accountLink","loginLink");
+const accountController = new AccountController("accountLink","loginLink","logoutLink");
 
 circuitController.showCircuitList()
 weatherController.showCurrentWeather()
