@@ -1,0 +1,13 @@
+Report Week 11
+
+What did I do since the last meeting?
+I have been working on the last module, Accounts. (15 hours spent)
+Developing the login functionality and using the constraint validation API on my forms.
+
+What am I going to do next?
+Finish the module account.
+Start to polish the style and presentation.
+
+What are my blockers?
+Just feeling nervious and anxious about this last weeks. :)
+

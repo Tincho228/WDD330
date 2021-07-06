@@ -46,6 +46,10 @@ const links = [
     {
       label: "Week10 : Constraint validation API, ",
       url: "week10/index.html"
+    },
+    {
+      label: "Week11 : Project 2 - Update ",
+      url: "week11/index.html"
     }
 
   ]
