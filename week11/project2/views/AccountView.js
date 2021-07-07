@@ -13,4 +13,10 @@ export default class AccountView {
         this.accountLink.classList.remove("disabled");
         this.accountLink.classList.add("text-warning");
     }
+    renderLogoutChanges(){
+        utilitiesModule.show(this.loginLink)
+        utilitiesModule.hide(this.logoutLink)
+        this.accountLink.classList.remove("text-warning");
+        this.accountLink.classList.add("disabled");
+    }
 }

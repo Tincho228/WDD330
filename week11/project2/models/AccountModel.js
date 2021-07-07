@@ -11,8 +11,6 @@ export default class AccountModel {
         return credentials;
     }
     startSession(){
-        console.log("start session")
-        
         sessionStorage.setItem(this.key, "loggedIn");
     }
     checkSession(){
@@ -20,7 +18,6 @@ export default class AccountModel {
         return result
     }
     destroySession(){
-        console.log("destroying session")
         sessionStorage.clear();
     }
 }

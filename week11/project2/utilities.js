@@ -59,10 +59,14 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(success, error);
     }
 }
+function clearInput(element){
+    element.value = ""
+}
 export {
     hide,
     show,
     getJSON,
     getLocation,
-    getDay
+    getDay,
+    clearInput
 }

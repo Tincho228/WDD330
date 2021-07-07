@@ -1,7 +1,7 @@
 // Import modules
 import AccountModel from '../models/AccountModel.js';
 import AccountView from '../views/AccountView.js';
-
+import * as utilitiesModule from "../utilities.js";
 
 export default class AccountController {
   constructor(accountLink, loginLink, logoutLink) {
@@ -20,6 +20,8 @@ export default class AccountController {
     const passError = document.querySelector('#password +span.error');
     const emailError = document.querySelector('#email + span.error');
     let credentials = Array.from(this.accountModel.getCredentials())
+    this.logoutLink.ontouchend = this.logout.bind(this)
+    this.accountLink.ontouchend = this.account.bind(this)
     // while typing
     email.addEventListener('input', e => {
       if (email.validity.valid) {
@@ -86,8 +88,6 @@ export default class AccountController {
 
     this.accountModel.startSession()
     this.accountView.renderLoginChanges()
-    
-
     $('#loginModal').modal('hide')
     return
   }
@@ -102,5 +102,27 @@ export default class AccountController {
     }
     element.className = 'error active';
   }
-
+  logout() {
+    this.accountModel.destroySession()
+    var delayInMilliseconds = 1000; //1 second
+    setTimeout( () =>{
+      this.accountView.renderLogoutChanges()}
+    , delayInMilliseconds);
+    const email = document.getElementById('email');
+    const pass = document.getElementById('password');
+    utilitiesModule.clearInput(email)
+    utilitiesModule.clearInput(pass)
+  }
+  account(){
+    console.log("account")
+  }
+  createCircuit(){
+    console.log("create circuit")
+  }
+  deleteCircuit(){
+    console.log("delete circuit")
+  }
+  editcircuit(){
+    console.log("edit circuit")
+  }
 }
