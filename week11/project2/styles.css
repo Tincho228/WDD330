@@ -37,7 +37,13 @@ html {
     background-size: cover;
     background-attachment: fixed;
 }
-
+.bg-image-account {
+    background-image: url("./images/bg-account.jpg") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 .icon-box {
     border-radius: 10px;
     border: 1px solid orange;

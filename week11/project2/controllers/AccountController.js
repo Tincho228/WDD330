@@ -4,7 +4,9 @@ import AccountView from '../views/AccountView.js';
 import * as utilitiesModule from "../utilities.js";
 
 export default class AccountController {
-  constructor(accountLink, loginLink, logoutLink) {
+  constructor(accountLink, loginLink, logoutLink, hero) {
+    this.heroParent = document.getElementById(hero)
+    console.log(this.heroParent)
     this.accountLink = document.getElementById(accountLink)
     this.loginLink = document.getElementById(loginLink)
     this.logoutLink = document.getElementById(logoutLink)
@@ -114,7 +116,14 @@ export default class AccountController {
     utilitiesModule.clearInput(pass)
   }
   account(){
-    console.log("account")
+    const infoSection = document.getElementById("infoSection")
+    const parentWeather = document.getElementById("weather"); 
+    const parentCircuit = document.getElementById("circuit"); 
+    utilitiesModule.hide(infoSection) 
+    utilitiesModule.hide(parentWeather)
+    parentCircuit.innerHTML = null
+    utilitiesModule.renderHeroAcoount(this.heroParent)
+    
   }
   createCircuit(){
     console.log("create circuit")
