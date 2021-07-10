@@ -6,7 +6,6 @@ import * as utilitiesModule from "../utilities.js";
 export default class AccountController {
   constructor(accountLink, loginLink, logoutLink, hero) {
     this.heroParent = document.getElementById(hero)
-    console.log(this.heroParent)
     this.accountLink = document.getElementById(accountLink)
     this.loginLink = document.getElementById(loginLink)
     this.logoutLink = document.getElementById(logoutLink)

@@ -8,8 +8,8 @@ export default class CircuitView {
     }
     renderCircuitList(circuitList, parentElement) {
         // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
-        parentElement.innerHTML = `<h2 id="circuit-title" class="bg-highlight-green text-light text-title text-center"
-        style="padding:5px;">Our Circuits</h2>`
+        /*parentElement.innerHTML = `<h2 id="circuit-title" class="bg-highlight-green text-light text-title text-center"
+        style="padding:5px;">Our Circuits</h2>`*/
         circuitList.forEach(circuit => {
             parentElement.appendChild(this.renderOneCircuit(circuit));
         })

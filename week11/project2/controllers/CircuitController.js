@@ -16,7 +16,6 @@ export default class CircuitController {
     this.parentWeather = document.getElementById("weather");
     this.heroParent = document.getElementById("hero");
     this.homeLink = document.getElementById("homeLink")
-    console.log(this.homeLink)
   }
 
   showCircuitList() {
