@@ -8,11 +8,15 @@ export default class CircuitView {
     }
     renderCircuitList(circuitList, parentElement) {
         // loop through our list of hikes building out the appropriate HTML for each and append it to the listElement
-        /*parentElement.innerHTML = `<h2 id="circuit-title" class="bg-highlight-green text-light text-title text-center"
-        style="padding:5px;">Our Circuits</h2>`*/
+        parentElement.innerHTML = `<h2 id="circuit-title" class="bg-highlight-green text-light text-title text-center"
+        style="padding:5px;">Our Circuits</h2>`
+        const cardContainer = document.createElement("div")
+        cardContainer.setAttribute("class", "row justify-content-center");
+        cardContainer.style.padding = "15px"
         circuitList.forEach(circuit => {
-            parentElement.appendChild(this.renderOneCircuit(circuit));
+            cardContainer.appendChild(this.renderOneCircuit(circuit));
         })
+        parentElement.appendChild(cardContainer)
     }
     renderOneCircuit(circuit) {
         const item = document.createElement("div");
@@ -35,7 +39,10 @@ export default class CircuitView {
         return item;
     }
     renderOneCircuitFull(circuitById, parentElement){
-        parentElement.innerHTML = 
+        const cardContainer = document.createElement("div")
+        cardContainer.setAttribute("class", "row justify-content-center");
+        cardContainer.style.padding = "15px"
+        cardContainer.innerHTML = 
                         `   <div class="col-sm-12 col-md-6">
                                 <h2 class="text-title text-light">${circuitById[0].name}</h2>
                                 <hr class="bg-light">
@@ -53,5 +60,6 @@ export default class CircuitView {
                                 <h2 class="text-light text-title text-right">Circuit Loop</h2>
                                 ${circuitById[0].map}
                             </div>`
+        parentElement.appendChild(cardContainer)
     }
 }

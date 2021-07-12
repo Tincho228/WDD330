@@ -17,10 +17,14 @@ export default class CircuitController {
     this.heroParent = document.getElementById("hero");
     this.homeLink = document.getElementById("homeLink")
   }
+  init(){
+    this.showCircuitList()
+    this.weatherController.showCurrentWeather()
+  }
 
   showCircuitList() {
     //full circuit list
-    this.homeLink.ontouchend = this.showCircuitList.bind(this)
+    this.homeLink.ontouchend = this.init.bind(this)
     utilitiesModule.renderHeroCircuit(this.heroParent)
     utilitiesModule.hide(this.btnBack)
     this.parentElement.innerHTML = null

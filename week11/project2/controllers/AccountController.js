@@ -1,10 +1,12 @@
 // Import modules
 import AccountModel from '../models/AccountModel.js';
 import AccountView from '../views/AccountView.js';
+import CircuitModel from '../models/CircuitModel.js';
 import * as utilitiesModule from "../utilities.js";
 
 export default class AccountController {
-  constructor(accountLink, loginLink, logoutLink, hero) {
+  constructor(accountLink, loginLink, logoutLink, hero, circuit) {
+    this.circuitParent = document.getElementById(circuit)
     this.heroParent = document.getElementById(hero)
     this.accountLink = document.getElementById(accountLink)
     this.loginLink = document.getElementById(loginLink)
@@ -13,6 +15,7 @@ export default class AccountController {
     this.errorMMessage = document.getElementById("errorMMessage")
     this.accountModel = new AccountModel()
     this.accountView = new AccountView(accountLink, loginLink, logoutLink)
+    this.circuitModel = new CircuitModel()
   }
   accountInit() {
     const form = document.getElementsByTagName('form')[0];
@@ -121,7 +124,10 @@ export default class AccountController {
     utilitiesModule.hide(infoSection) 
     utilitiesModule.hide(parentWeather)
     parentCircuit.innerHTML = null
-    utilitiesModule.renderHeroAcoount(this.heroParent)
+    const circuitList = this.circuitModel.getAllCircuits()
+    utilitiesModule.renderHeroAccount(this.heroParent)
+    utilitiesModule.renderCircuitList(circuitList, this.circuitParent)
+
     
   }
   createCircuit(){
