@@ -93,34 +93,6 @@ function renderHeroAccount(parentElement){
   </div>`
 }
 
-function renderCircuitList(circuitList, parent) {
-    circuitList.forEach(circuit => {
-      parent.appendChild(renderOneCircuitList(circuit));
-    });
-    const item = document.createElement("div")
-    item.setAttribute("class", "list-group-item");
-    item.innerHTML = ` <div class="d-flex align-items-center justify-content-between">
-                            <span class="text-success">Create a new Circuit</span>
-                            <button id="btnSubmit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></button>  
-                        </div> `
-                    
-    parent.appendChild(item)
-    //
-  }
-  
-  function renderOneCircuitList(circuit) {
-    const item = document.createElement("li");
-    item.style.marginBottom = "5px"
-    item.setAttribute("class", "list-group-item");
-    item.innerHTML = ` <div class="d-flex align-items-center justify-content-between">
-          <span id="${circuit.id}">${circuit.name}</span>
-          <div class="d-flex">
-              <button id="btnEdit" data-id=${circuit.id}  class="btn btn-secondary" style="margin-right:5px" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit circuit"><i class="fas fa-edit"></i></i>
-              <button id="btnDelete" data-id=${circuit.id} class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-          </div>
-      </div> `;
-    return item;
-  }
 export {
     hide,
     show,
@@ -129,6 +101,5 @@ export {
     getDay,
     clearInput,
     renderHeroAccount,
-    renderHeroCircuit,
-    renderCircuitList
+    renderHeroCircuit
 }

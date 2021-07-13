@@ -74,7 +74,7 @@ export default class AccountController {
     }
   }
   evaluate(e, pass, passError, email, emailError, credentials) {
-    e.preventDefault()
+    e.preventDefault()/*
     if (!pass.validity.valid) {
       this.showError(pass, passError);
       return
@@ -88,7 +88,7 @@ export default class AccountController {
       console.log("password does not match")
       this.errorMMessage.innerHTML = "Password incorrect, try again"
       return
-    }
+    }*/
 
     this.accountModel.startSession()
     this.accountView.renderLoginChanges()
@@ -109,34 +109,50 @@ export default class AccountController {
   logout() {
     this.accountModel.destroySession()
     var delayInMilliseconds = 1000; //1 second
-    setTimeout( () =>{
-      this.accountView.renderLogoutChanges()}
-    , delayInMilliseconds);
+    setTimeout(() => {
+      this.accountView.renderLogoutChanges()
+    }, delayInMilliseconds);
     const email = document.getElementById('email');
     const pass = document.getElementById('password');
     utilitiesModule.clearInput(email)
     utilitiesModule.clearInput(pass)
   }
-  account(){
+  account() {
     const infoSection = document.getElementById("infoSection")
-    const parentWeather = document.getElementById("weather"); 
-    const parentCircuit = document.getElementById("circuit"); 
-    utilitiesModule.hide(infoSection) 
+    const parentWeather = document.getElementById("weather");
+    const parentCircuit = document.getElementById("circuit");
+    utilitiesModule.hide(infoSection)
     utilitiesModule.hide(parentWeather)
     parentCircuit.innerHTML = null
     const circuitList = this.circuitModel.getAllCircuits()
     utilitiesModule.renderHeroAccount(this.heroParent)
-    utilitiesModule.renderCircuitList(circuitList, this.circuitParent)
-
-    
+    this.accountView.renderCircuitList(circuitList, this.circuitParent)
+    const btnEdit = Array.from(document.querySelectorAll(".btnEdit"))
+    const btnDelete = Array.from(document.querySelectorAll(".btnDelete"))
+    const btnCreate = Array.from(document.querySelectorAll(".btnCreate"))
+    btnEdit.forEach(btn => {
+      btn.addEventListener('touchend', e => {
+        this.editCircuit(e.currentTarget.dataset.id)
+      })
+    })
+    btnDelete.forEach(btn => {
+      btn.addEventListener('touchend', e => {
+        this.deleteCircuit(e.currentTarget.dataset.id)
+      })
+    })
+    btnCreate.forEach(btn => {
+      btn.addEventListener('touchend', e => {
+        this.createCircuit()
+      })
+    })
   }
-  createCircuit(){
+  createCircuit() {
     console.log("create circuit")
   }
-  deleteCircuit(){
-    console.log("delete circuit")
+  deleteCircuit(e) {
+    console.log("delete circuit" + e)
   }
-  editcircuit(){
-    console.log("edit circuit")
+  editCircuit(e) {
+    console.log("edit circuit" + e)
   }
 }

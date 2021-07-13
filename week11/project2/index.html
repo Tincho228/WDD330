@@ -36,17 +36,18 @@
                             <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#loginModal"
                                 id="loginLink"><i class="fas fa-user"></i> Login</a>
                             <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#logoutModal"
-                                id="logoutLink" style="display:none"><i class="far fa-arrow-alt-circle-left"></i> Logout</a>
+                                id="logoutLink" style="display:none"><i class="far fa-arrow-alt-circle-left"></i>
+                                Logout</a>
                         </div>
                     </div>
                 </nav>
                 <div id="hero">
-                    
+
                 </div>
                 <!-- Account Modal -->
-                <!-- Modal -->
-                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Modal login-->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content bg-main">
                             <div class="modal-header">
@@ -93,6 +94,97 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal create-->
+                <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content bg-main">
+                            <div class="modal-header">
+                                <img class="img-fluid" src="images/logo.png" alt="Modal logo">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form novalidate>
+                                <div class="modal-body">
+                                    <h2 class="modal-title text-title text-light" id="exampleModalLabel">Create your
+                                        custom circuit</h2>
+                                    <p class="text-bodycopy text-info" style="font-style:italic;">Complete all the
+                                        fields</p>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="name">Circuit name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Custom name"
+                                            required minlength="8" maxlength="25" autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                    <p class="text-light text-bodycopy" style="margin-bottom: .5rem;">Image</p>
+                                    <div class="custom-file" style="margin-bottom: .5rem;">
+                                        <input type="file" class="custom-file-input" id="image">
+                                        <label class="custom-file-label" for="image">Choose file</label>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group" style="margin-right:5px;">
+                                            <label class="text-light text-bodycopy" for="distance">Distance (in
+                                                miles)</label>
+                                            <input type="number" class="form-control" id="distance" placeholder="1"
+                                                required maxlength="3" autocomplete="off">
+                                            <span class="error" aria-live="polite"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-light text-bodycopy" for="difficulty">Difficulty
+                                                (select)</label>
+                                            <select class="form-control" id="difficulty">
+                                                <option>easy</option>
+                                                <option>medium</option>
+                                                <option>advanced</option>
+                                            </select>
+                                            <span class="error" aria-live="polite"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="directions">Directions</label>
+                                        <input type="text" class="form-control" id="directions"
+                                            placeholder="Meeting point" required minlength="8" maxlength="25"
+                                            autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group" style="margin-right:5px;">
+                                            <label class="text-bodycopy text-light" for="date">Date</label>
+                                            <input placeholder="Select date" type="date" id="date" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-bodycopy text-light" for="time">Time</label>
+                                            <input type="time" id="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="name">Team Leader</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Leader name"
+                                            required minlength="8" maxlength="10" autocomplete="off">
+                                        <textarea id="map" name="map" rows="4" cols="50" placeholder="insert map"></textarea>
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="name">Team Leader</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Leader name"
+                                            required minlength="8" maxlength="10" autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <p class="text-bodycopy text-danger" id="errorMMessage"
+                                        style="margin-right:auto; margin-left:0px; margin-bottom:0px"></p>
+                                    <button type="button" class="btn-sm btn-secondary"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn-sm btn-primary"
+                                        id="btnSubmit_create">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </header>
             <main>
                 <div class="row" id="infoSection">
@@ -130,10 +222,10 @@
 
                     </div>
                 </div>
-                    <!--<h2 id="circuit-title" class="bg-highlight-green text-light text-title text-center"
+                <!--<h2 id="circuit-title" class="bg-highlight-green text-light text-title text-center"
                     style="padding:5px;">Our Circuits</h2>
                     <div id="circuit" class="row justify-content-center" style="padding:15px">-->
-                    <div id="circuit">
+                <div id="circuit">
 
                     <!-- Display the circuits -->
                 </div>
