@@ -92,6 +92,16 @@ function renderHeroAccount(parentElement){
     </div>
   </div>`
 }
+function eventWhiletyping (element, error, callback){
+    element.addEventListener('input', e => {
+        if (element.validity.valid) {
+            error.textContent = ''; // Reset the content of the message
+            error.className = 'error'; // Reset the visual state of the message
+          } else {
+            callback(element,error)
+          }
+    });
+}
 
 export {
     hide,
@@ -101,5 +111,6 @@ export {
     getDay,
     clearInput,
     renderHeroAccount,
-    renderHeroCircuit
+    renderHeroCircuit,
+    eventWhiletyping
 }

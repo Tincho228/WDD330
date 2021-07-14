@@ -27,22 +27,9 @@ export default class AccountController {
     this.logoutLink.ontouchend = this.logout.bind(this)
     this.accountLink.ontouchend = this.account.bind(this)
     // while typing
-    email.addEventListener('input', e => {
-      if (email.validity.valid) {
-        emailError.textContent = ''; // Reset the content of the message
-        emailError.className = 'error'; // Reset the visual state of the message
-      } else {
-        this.showError(email, emailError);
-      }
-    });
-    pass.addEventListener('input', e => {
-      if (pass.validity.valid) {
-        passError.textContent = ''; // Reset the content of the message
-        passError.className = 'error'; // Reset the visual state of the message
-      } else {
-        this.showError(pass, passError);
-      }
-    });
+    utilitiesModule.eventWhiletyping(email,emailError,this.showError.bind(this))
+    utilitiesModule.eventWhiletyping(pass,passError,this.showError.bind(this))
+    
     // after changing the whole value
     email.addEventListener('change', testEmail);
     pass.addEventListener('change', testPassword);
@@ -102,7 +89,9 @@ export default class AccountController {
       element.textContent = 'Entered value needs to be valid, try again';
     } else if (data.validity.tooShort) {
       element.textContent =
-        `Email should be at least ${ data.minLength } characters; you entered ${ data.value.length }.`;
+        `Item should be at least ${ data.minLength } characters; you entered ${ data.value.length }.`;
+    } else if (data.validity.patternMismatch){
+      element.textContent = "Type of value needs to be valid, try again"
     }
     element.className = 'error active';
   }
@@ -147,12 +136,46 @@ export default class AccountController {
     })
   }
   createCircuit() {
-    console.log("create circuit")
+    const form = document.getElementsByTagName('form')[1];
+    const name = document.getElementById('name');
+    const nameError = document.querySelector('#name + span.error');
+    let image = document.getElementById('image');
+    const distance = document.getElementById('distance');
+    const distanceError = document.querySelector('#distance + span.error');
+    const difficulty = document.getElementById('difficulty');
+    const directions = document.getElementById('directions');
+    const directionsError = document.querySelector('#directions + span.error');
+    const date = document.getElementById('date');   
+    const time = document.getElementById('time');
+    const map = document.getElementById('map');
+    const leader = document.getElementById('leader');
+    // while typing
+    utilitiesModule.eventWhiletyping(name, nameError, this.showError.bind(this))
+    utilitiesModule.eventWhiletyping(distance, distanceError, this.showError.bind(this))
+    utilitiesModule.eventWhiletyping(directions, directionsError, this.showError.bind(this))
+    // changing the whole value
+    
+    // when submitting
+    form.addEventListener('submit', e => {
+      this.testValue(date)
+    });
+    
   }
+
   deleteCircuit(e) {
     console.log("delete circuit" + e)
   }
   editCircuit(e) {
     console.log("edit circuit" + e)
+  }
+  testValue(element){
+      element.setCustomValidity(''); //clear old message
+      //built-in test for error based on type, pattern, and other attrs
+      let currently = element.checkValidity();
+      console.log(currently)
+      if (currently === false)  {
+          element.setCustomValidity("Complete all empty fields")
+          element.reportValidity() // show the built in message
+    }
   }
 }

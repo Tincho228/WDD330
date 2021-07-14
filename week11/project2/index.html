@@ -119,21 +119,22 @@
                                     </div>
                                     <p class="text-light text-bodycopy" style="margin-bottom: .5rem;">Image</p>
                                     <div class="custom-file" style="margin-bottom: .5rem;">
-                                        <input type="file" class="custom-file-input" id="image">
+                                        <input type="file" class="custom-file-input" id="image" required>
                                         <label class="custom-file-label" for="image">Choose file</label>
                                     </div>
+
                                     <div class="d-flex">
                                         <div class="form-group" style="margin-right:5px;">
                                             <label class="text-light text-bodycopy" for="distance">Distance (in
                                                 miles)</label>
-                                            <input type="number" class="form-control" id="distance" placeholder="1"
-                                                required maxlength="3" autocomplete="off">
+                                            <input type="text" class="form-control" id="distance" placeholder="1"
+                                                required maxlength="3" autocomplete="off" pattern="[0-9]+">
                                             <span class="error" aria-live="polite"></span>
                                         </div>
                                         <div class="form-group">
                                             <label class="text-light text-bodycopy" for="difficulty">Difficulty
                                                 (select)</label>
-                                            <select class="form-control" id="difficulty">
+                                            <select class="form-control" id="difficulty" required>
                                                 <option>easy</option>
                                                 <option>medium</option>
                                                 <option>advanced</option>
@@ -152,22 +153,23 @@
                                         <div class="form-group" style="margin-right:5px;">
                                             <label class="text-bodycopy text-light" for="date">Date</label>
                                             <input placeholder="Select date" type="date" id="date" class="form-control">
+                                            <span class="error" aria-live="polite"></span>
                                         </div>
                                         <div class="form-group">
                                             <label class="text-bodycopy text-light" for="time">Time</label>
-                                            <input type="time" id="date" class="form-control">
+                                            <input type="time" id="time" class="form-control">
+                                            <span class="error" aria-live="polite"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="text-light text-bodycopy" for="name">Team Leader</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Leader name"
-                                            required minlength="8" maxlength="10" autocomplete="off">
-                                        <textarea id="map" name="map" rows="4" cols="50" placeholder="insert map"></textarea>
+                                        <label class="text-light text-bodycopy" for="map">Embed Map</label>
+                                        <textarea class="form-control" id="map" name="map" rows="4" cols="50" placeholder="insert map"></textarea>
                                         <span class="error" aria-live="polite"></span>
+                                        <small class="text-light" id="emailHelp" class="form-text text-muted">Available only from desktop computer.</small>
                                     </div>
                                     <div class="form-group">
-                                        <label class="text-light text-bodycopy" for="name">Team Leader</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Leader name"
+                                        <label class="text-light text-bodycopy" for="leader">Team Leader</label>
+                                        <input type="text" class="form-control" id="leader" placeholder="Leader name"
                                             required minlength="8" maxlength="10" autocomplete="off">
                                         <span class="error" aria-live="polite"></span>
                                     </div>
