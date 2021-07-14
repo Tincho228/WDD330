@@ -154,11 +154,16 @@ export default class AccountController {
     utilitiesModule.eventWhiletyping(distance, distanceError, this.showError.bind(this))
     utilitiesModule.eventWhiletyping(directions, directionsError, this.showError.bind(this))
     // changing the whole value
-    
+    date.addEventListener('change', testDate);
     // when submitting
     form.addEventListener('submit', e => {
       this.testValue(date)
     });
+    function testDate(){
+      if(!date.value){
+        console.log("no date")
+      }
+    }
     
   }
 
