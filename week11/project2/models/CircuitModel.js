@@ -65,22 +65,23 @@ export default class CircuitModel {
     }
     getComentByName(hikeName) {
         // filter the hikes for the record identified by hikeName and return it
-        let key = "hikes"
+        let key = "circuit"
         let existing = JSON.parse(localStorage.getItem(key));
         if (existing) {
             return existing.filter(comment => comment.name === hikeName)
         }
     }
-    writeCommentToLS(data) {
-        let key = "hikes"
+    writeCircuitToLS(object) {
+        console.log(object)
+        let key = "circuit"
         let existing = JSON.parse(localStorage.getItem(key))
         if (existing) {
-            existing[existing.length] = data;
+            existing[existing.length] = object;
             localStorage.setItem(key, JSON.stringify(existing));
             return;
         }
         existing = [];
-        existing[existing.length] = data;
+        existing[existing.length] = object;
         localStorage.setItem(key, JSON.stringify(existing));
         return;
     }

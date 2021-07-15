@@ -27,9 +27,9 @@ export default class AccountController {
     this.logoutLink.ontouchend = this.logout.bind(this)
     this.accountLink.ontouchend = this.account.bind(this)
     // while typing
-    utilitiesModule.eventWhiletyping(email,emailError,this.showError.bind(this))
-    utilitiesModule.eventWhiletyping(pass,passError,this.showError.bind(this))
-    
+    utilitiesModule.eventWhiletyping(email, emailError, this.showError.bind(this))
+    utilitiesModule.eventWhiletyping(pass, passError, this.showError.bind(this))
+
     // after changing the whole value
     email.addEventListener('change', testEmail);
     pass.addEventListener('change', testPassword);
@@ -61,21 +61,22 @@ export default class AccountController {
     }
   }
   evaluate(e, pass, passError, email, emailError, credentials) {
-    e.preventDefault()/*
-    if (!pass.validity.valid) {
-      this.showError(pass, passError);
-      return
-    }
-    if (!(credentials[0].user === email.value)) {
-      console.log("email does not match")
-      this.errorMMessage.innerHTML = "Email incorrect, try again"
-      return
-    }
-    if (!(credentials[0].password === pass.value)) {
-      console.log("password does not match")
-      this.errorMMessage.innerHTML = "Password incorrect, try again"
-      return
-    }*/
+    e.preventDefault()
+    /*
+        if (!pass.validity.valid) {
+          this.showError(pass, passError);
+          return
+        }
+        if (!(credentials[0].user === email.value)) {
+          console.log("email does not match")
+          this.errorMMessage.innerHTML = "Email incorrect, try again"
+          return
+        }
+        if (!(credentials[0].password === pass.value)) {
+          console.log("password does not match")
+          this.errorMMessage.innerHTML = "Password incorrect, try again"
+          return
+        }*/
 
     this.accountModel.startSession()
     this.accountView.renderLoginChanges()
@@ -90,7 +91,7 @@ export default class AccountController {
     } else if (data.validity.tooShort) {
       element.textContent =
         `Item should be at least ${ data.minLength } characters; you entered ${ data.value.length }.`;
-    } else if (data.validity.patternMismatch){
+    } else if (data.validity.patternMismatch) {
       element.textContent = "Type of value needs to be valid, try again"
     }
     element.className = 'error active';
@@ -145,26 +146,65 @@ export default class AccountController {
     const difficulty = document.getElementById('difficulty');
     const directions = document.getElementById('directions');
     const directionsError = document.querySelector('#directions + span.error');
-    const date = document.getElementById('date');   
+    const date = document.getElementById('date');
     const time = document.getElementById('time');
     const map = document.getElementById('map');
     const leader = document.getElementById('leader');
+    const leaderError = document.querySelector('#leader + span.error');
     // while typing
     utilitiesModule.eventWhiletyping(name, nameError, this.showError.bind(this))
     utilitiesModule.eventWhiletyping(distance, distanceError, this.showError.bind(this))
     utilitiesModule.eventWhiletyping(directions, directionsError, this.showError.bind(this))
-    // changing the whole value
-    date.addEventListener('change', testDate);
+    utilitiesModule.eventWhiletyping(leader, leaderError, this.showError.bind(this))
+    
+    //image file loading
+    const newImage = image.addEventListener("change", function(){
+      console.log(this.files)
+      const reader = new FileReader()
+      reader.addEventListener("load", () =>{
+        return reader.result
+      })
+
+      reader.readAsDataURL(this.files[0])
+    })
     // when submitting
     form.addEventListener('submit', e => {
-      this.testValue(date)
-    });
-    function testDate(){
-      if(!date.value){
-        console.log("no date")
+      e.preventDefault();
+      console.log(newImage)
+      let object = {
+        name: name,
+        image: image,
+        distance: distance,
+        difficulty: difficulty,
+        directions: directions,
+        date: date,
+        time: time,
+        map: map,
+        leader: leader
       }
-    }
-    
+      var result = utilitiesModule.testValue(object)
+      if (result === true){
+
+      // Constructing the final new object
+      let newCircuit = {
+          id: new Date().getTime(),
+          name: name.value,
+          imgSrc: newImage,
+          imgAlt: "Image of " + name,
+          distance: distance.value + "miles", 
+          difficulty: difficulty.value,
+          directions: directions.value,
+          day: date.value,
+          date: date.value,
+          hour: time.value,
+          map: map.value,
+          teamLeader: leader.value
+      }  
+        this.circuitModel.writeCircuitToLS(newCircuit)
+      }
+
+    });
+
   }
 
   deleteCircuit(e) {
@@ -173,14 +213,5 @@ export default class AccountController {
   editCircuit(e) {
     console.log("edit circuit" + e)
   }
-  testValue(element){
-      element.setCustomValidity(''); //clear old message
-      //built-in test for error based on type, pattern, and other attrs
-      let currently = element.checkValidity();
-      console.log(currently)
-      if (currently === false)  {
-          element.setCustomValidity("Complete all empty fields")
-          element.reportValidity() // show the built in message
-    }
-  }
+  
 }

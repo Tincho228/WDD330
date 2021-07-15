@@ -30,9 +30,9 @@ async function getJSON(url) {
 }
 
 function getDay(unix) {
-    var date = new Date(unix *1000);
-    var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]  
-    var month = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    var date = new Date(unix * 1000);
+    var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     // Will display time in 10:30:23 format
     let result = {
         day: day[date.getDay()],
@@ -59,10 +59,12 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(success, error);
     }
 }
-function clearInput(element){
+
+function clearInput(element) {
     element.value = ""
 }
-function renderHeroCircuit(parentElement){
+
+function renderHeroCircuit(parentElement) {
     parentElement.innerHTML = `<div class="hero bg-image-home">
                                 <div class="jumbotron-fluid">
                                     <div class="container">
@@ -80,8 +82,9 @@ function renderHeroCircuit(parentElement){
                                 </div>
                             </div>`
 }
-function renderHeroAccount(parentElement){
-    parentElement.innerHTML =`<div class="hero bg-image-account">
+
+function renderHeroAccount(parentElement) {
+    parentElement.innerHTML = `<div class="hero bg-image-account">
     <div class="jumbotron-fluid">
       <div class="container">
         <h1 class="text-light text-title" style="padding-top:20px;">Welcome Admin!!!</h1>
@@ -92,15 +95,43 @@ function renderHeroAccount(parentElement){
     </div>
   </div>`
 }
-function eventWhiletyping (element, error, callback){
+
+function eventWhiletyping(element, error, callback) {
     element.addEventListener('input', e => {
         if (element.validity.valid) {
             error.textContent = ''; // Reset the content of the message
             error.className = 'error'; // Reset the visual state of the message
-          } else {
-            callback(element,error)
-          }
+        } else {
+            callback(element, error)
+        }
     });
+}
+
+function testValue(object) {
+    for (const property in object) {
+        object[property].setCustomValidity(''); //clear old message
+        let currently = object[property].checkValidity()
+        if (currently === false) {
+            object[property].setCustomValidity("Complete all empty fields")
+            object[property].reportValidity() // show the built in message
+            return
+        } else {
+            var resultOne = true
+        }
+        if (!object[property].value) {
+            object[property].setCustomValidity("Complete all empty fields")
+            object[property].reportValidity() // show the built in message
+            return
+        } else {
+            var resultTwo = true
+        }
+    }
+    if (resultOne === true && resultTwo === true) {
+        var finalResult = true
+        return finalResult
+    }
+
+
 }
 
 export {
@@ -112,5 +143,6 @@ export {
     clearInput,
     renderHeroAccount,
     renderHeroCircuit,
-    eventWhiletyping
+    eventWhiletyping,
+    testValue
 }
