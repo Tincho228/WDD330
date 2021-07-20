@@ -183,9 +183,8 @@ export default class AccountController {
         map: map,
         leader: leader
       }
-      //var result = utilitiesModule.testValue(object)
-      // if (result === true){
-      if (true) {
+      var result = utilitiesModule.testValue(object)
+       if (result === true){
         // Constructing the final new object
         let newCircuit = {
           id: new Date().getTime(),
