@@ -27,23 +27,27 @@ export default class CircuitController {
     this.homeLink.ontouchend = this.init.bind(this)
     utilitiesModule.renderHeroCircuit(this.heroParent)
     utilitiesModule.hide(this.btnBack)
-    this.parentElement.innerHTML = null
+    const parentCircuit = document.getElementById('circuit')
+    parentCircuit.innerHTML = null
     const circuitList = Array.from(this.circuitModel.getAllCircuits())
     if (circuitList.length === 0) {
-      this.parentElement.innerHTML = '<p class="text-danger text-center">No comments to show</p>'
+      console.log("no circuits")
+      this.parentElement.innerHTML = `<h1 class="text-danger text-center blinking">No circuits to show</h1>
+      <p class="text-light text-center">Log in and create a circuits</p>`
     } else {
-      this.circuitView.renderCircuitList(circuitList, this.parentElement)
+      this.circuitView.renderCircuitList(circuitList, parentCircuit)
     }
     this.addListenerbyClass(".btnId");
     this.weatherController.showCurrentWeather();
   }
   showOneCircuit(id) {
     const circuitById = this.circuitModel.getCircuitById(id)
+    const parentCircuit = document.getElementById('circuit')
     // Clearing the list
-    this.parentElement.innerHTML = null
+    parentCircuit.innerHTML = null
     utilitiesModule.hide(this.infoSection)
     // Show all comments by name
-    this.circuitView.renderOneCircuitFull(circuitById, this.parentElement)
+    this.circuitView.renderOneCircuitFull(circuitById, parentCircuit)
     utilitiesModule.show(this.btnBack)
     this.btnBack.ontouchend = this.showCircuitList.bind(this);
     this.weatherController.showWeatherDetail(circuitById)

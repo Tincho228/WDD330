@@ -1,4 +1,5 @@
 // Import modules
+import CircuitController from '../controllers/CircuitController.js';
 import AccountModel from '../models/AccountModel.js';
 import AccountView from '../views/AccountView.js';
 import CircuitModel from '../models/CircuitModel.js';
@@ -16,6 +17,7 @@ export default class AccountController {
     this.accountModel = new AccountModel()
     this.accountView = new AccountView(accountLink, loginLink, logoutLink)
     this.circuitModel = new CircuitModel()
+    this.circuitController = new CircuitController()
   }
   accountInit() {
     const form = document.getElementsByTagName('form')[0];
@@ -62,22 +64,19 @@ export default class AccountController {
   }
   evaluate(e, pass, passError, email, emailError, credentials) {
     e.preventDefault()
-    /*
-        if (!pass.validity.valid) {
-          this.showError(pass, passError);
-          return
-        }
-        if (!(credentials[0].user === email.value)) {
-          console.log("email does not match")
-          this.errorMMessage.innerHTML = "Email incorrect, try again"
-          return
-        }
-        if (!(credentials[0].password === pass.value)) {
-          console.log("password does not match")
-          this.errorMMessage.innerHTML = "Password incorrect, try again"
-          return
-        }*/
-
+            if (!pass.validity.valid) {
+              this.showError(pass, passError);
+              return
+            }
+            if (!(credentials[0].user === email.value)) {
+              console.log("email does not match")
+              this.errorMMessage.innerHTML = "Email incorrect, try again"
+              return
+            }
+            if (!(credentials[0].password === pass.value)) {
+              this.errorMMessage.innerHTML = "Password incorrect, try again"
+              return
+            }
     this.accountModel.startSession()
     this.accountView.renderLoginChanges()
     $('#loginModal').modal('hide')
@@ -106,6 +105,7 @@ export default class AccountController {
     const pass = document.getElementById('password');
     utilitiesModule.clearInput(email)
     utilitiesModule.clearInput(pass)
+    this.circuitController.init()
   }
   account() {
     const infoSection = document.getElementById("infoSection")
@@ -146,6 +146,8 @@ export default class AccountController {
     const difficulty = document.getElementById('difficulty');
     const directions = document.getElementById('directions');
     const directionsError = document.querySelector('#directions + span.error');
+    const description = document.getElementById('description')
+    const descriptionError = document.querySelector('#description + span.error');
     const date = document.getElementById('date');
     const time = document.getElementById('time');
     const map = document.getElementById('map');
@@ -155,63 +157,72 @@ export default class AccountController {
     utilitiesModule.eventWhiletyping(name, nameError, this.showError.bind(this))
     utilitiesModule.eventWhiletyping(distance, distanceError, this.showError.bind(this))
     utilitiesModule.eventWhiletyping(directions, directionsError, this.showError.bind(this))
+    utilitiesModule.eventWhiletyping(description, descriptionError, this.showError.bind(this))
     utilitiesModule.eventWhiletyping(leader, leaderError, this.showError.bind(this))
-    
-    //image file loading
-    const newImage = image.addEventListener("change", function(){
-      console.log(this.files)
-      const reader = new FileReader()
-      reader.addEventListener("load", () =>{
-        return reader.result
-      })
 
+    //image file loading 
+    image.addEventListener("change", function () {
+      const reader = new FileReader()
+      reader.addEventListener("load", () => {
+        localStorage.setItem('recent-image', reader.result)
+      })
       reader.readAsDataURL(this.files[0])
     })
     // when submitting
     form.addEventListener('submit', e => {
       e.preventDefault();
-      console.log(newImage)
       let object = {
         name: name,
         image: image,
         distance: distance,
         difficulty: difficulty,
         directions: directions,
+        description: description,
         date: date,
         time: time,
         map: map,
         leader: leader
       }
-      var result = utilitiesModule.testValue(object)
-      if (result === true){
-
-      // Constructing the final new object
-      let newCircuit = {
+      //var result = utilitiesModule.testValue(object)
+      // if (result === true){
+      if (true) {
+        // Constructing the final new object
+        let newCircuit = {
           id: new Date().getTime(),
           name: name.value,
-          imgSrc: newImage,
-          imgAlt: "Image of " + name,
-          distance: distance.value + "miles", 
+          imgSrc: localStorage.getItem('recent-image'),
+          imgAlt: "Image of " + name.value,
+          distance: distance.value + " miles",
           difficulty: difficulty.value,
           directions: directions.value,
-          day: date.value,
-          date: date.value,
+          description: description.value,
+          day: utilitiesModule.getDayCircuits(date.value).day,
+          date: utilitiesModule.getDayCircuits(new Date(date.value).getTime()).date,
           hour: time.value,
           map: map.value,
           teamLeader: leader.value
-      }  
+        }
         this.circuitModel.writeCircuitToLS(newCircuit)
+        $('#createModal').modal('hide')
+        this.account()
       }
 
     });
 
   }
 
-  deleteCircuit(e) {
-    console.log("delete circuit" + e)
+  deleteCircuit(id) {
+    $('#deleteModal').modal('show')
+    const btnSubmit_delete = document.getElementById("btnSubmit_delete")
+    btnSubmit_delete.ontouchend = () => {
+      this.circuitModel.deleteCircuit(id)
+      $('#deleteModal').modal('hide')
+      this.account()
+    }
   }
   editCircuit(e) {
+    $('#editModal').modal('show')
     console.log("edit circuit" + e)
   }
-  
+
 }

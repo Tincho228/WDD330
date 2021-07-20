@@ -148,6 +148,13 @@
                                             autocomplete="off">
                                         <span class="error" aria-live="polite"></span>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="description">Description</label>
+                                        <input type="text" class="form-control" id="description"
+                                            placeholder="Brief Description" required minlength="8" maxlength="25"
+                                            autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
                                     <div class="d-flex">
                                         <div class="form-group" style="margin-right:5px;">
                                             <label class="text-bodycopy text-light" for="date">Date</label>
@@ -162,9 +169,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="text-light text-bodycopy" for="map">Embed Map</label>
-                                        <textarea class="form-control" id="map" name="map" rows="4" cols="50" placeholder="insert map"></textarea>
+                                        <textarea class="form-control" id="map" name="map" rows="4" cols="50"
+                                            placeholder="insert map"></textarea>
                                         <span class="error" aria-live="polite"></span>
-                                        <small class="text-light" id="emailHelp" class="form-text text-muted">Available only from desktop computer.</small>
+                                        <small class="text-light" id="emailHelp" class="form-text text-muted">Available
+                                            only from desktop computer.</small>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-light text-bodycopy" for="leader">Team Leader</label>
@@ -183,6 +192,123 @@
                                 </div>
 
                             </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal edit-->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content bg-main">
+                            <div class="modal-header">
+                                <img class="img-fluid" src="images/logo.png" alt="Modal logo">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form novalidate>
+                                <div class="modal-body">
+                                    <h2 class="modal-title text-title text-light" id="exampleModalLabel">Edit now</h2>
+                                    <p class="text-bodycopy text-info" style="font-style:italic;">All
+                                        fields must be completed</p>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="name">Circuit name</label>
+                                        <input type="text" class="form-control" id="edit_name" required minlength="8"
+                                            maxlength="25" autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                    <p class="text-light text-bodycopy" style="margin-bottom: .5rem;">Image</p>
+                                    <div class="custom-file" style="margin-bottom: .5rem;">
+                                        <input type="file" class="custom-file-input" id="edit_image" required>
+                                        <label class="custom-file-label" for="image">Choose file</label>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="form-group" style="margin-right:5px;">
+                                            <label class="text-light text-bodycopy" for="distance">Distance (in
+                                                miles)</label>
+                                            <input type="text" class="form-control" id="edit_distance" placeholder="1"
+                                                required maxlength="3" autocomplete="off" pattern="[0-9]+">
+                                            <span class="error" aria-live="polite"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-light text-bodycopy" for="difficulty">Difficulty</label>
+                                            <select class="form-control" id="edit_difficulty" required>
+                                                <option>easy</option>
+                                                <option>medium</option>
+                                                <option>advanced</option>
+                                            </select>
+                                            <span class="error" aria-live="polite"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="directions">Directions</label>
+                                        <input type="text" class="form-control" id="edit_directions" required
+                                            minlength="8" maxlength="25" autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group" style="margin-right:5px;">
+                                            <label class="text-bodycopy text-light" for="date">Date</label>
+                                            <input type="date" id="edit_date" class="form-control">
+                                            <span class="error" aria-live="polite"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-bodycopy text-light" for="time">Time</label>
+                                            <input type="time" id="edit_time" class="form-control">
+                                            <span class="error" aria-live="polite"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="map">Embed Map</label>
+                                        <textarea class="form-control" id="edit_map" name="map" rows="4"
+                                            cols="50"></textarea>
+                                        <span class="error" aria-live="polite"></span>
+                                        <small class="text-light" id="emailHelp" class="form-text text-muted">Available
+                                            only from desktop computer.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-light text-bodycopy" for="leader">Team Leader</label>
+                                        <input type="text" class="form-control" id="edit_leader" required maxlength="10"
+                                            autocomplete="off">
+                                        <span class="error" aria-live="polite"></span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <p class="text-bodycopy text-danger" id="edit_errorMMessage"
+                                        style="margin-right:auto; margin-left:0px; margin-bottom:0px"></p>
+                                    <button type="button" class="btn-sm btn-secondary"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn-sm btn-primary" id="btnSubmit_edit">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Delete-->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content bg-main">
+                            <div class="modal-header">
+                                <img class="img-fluid" src="images/logo.png" alt="Modal logo">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center text-light">
+                                <h3 class="text-title">Delete circuit?</h3>
+                                <p class="text-bodycopy">Information will not be available anymore</p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-bodycopy text-danger" id="edit_errorMMessage"
+                                    style="margin-right:auto; margin-left:0px; margin-bottom:0px"></p>
+                                <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn-sm btn-primary" id="btnSubmit_delete">Delete</button>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,7 @@ export default class CircuitView {
                             <div class="card-body bg-main text-light">
                                 <h5 class="card-title text-bodycopy">${circuit.day} ${circuit.date} <span class="text-warning">${circuit.hour}</span></h5>
                                 <p class="card-text">${circuit.description}</p>
-                                <a href="#" class="btn-sm btn-primary btnId" data-id ="${circuit.id}">Join Team</a>
+                                <a href="#" class="btn-sm btn-primary btnId" data-id =${circuit.id}>Join Team</a>
                             </div> `
         return item;
     }
@@ -53,7 +53,8 @@ export default class CircuitView {
                                 <h4 class="text-light text-bodycopy">Description</h4>
                                 <p class="text-bodycopy text-light">${circuitById[0].description}</p>
                                 <h4 class="text-light text-bodycopy">${circuitById[0].directions}</h4>
-                                
+                                <h4 class="text-light text-bodycopy">Distance: ${circuitById[0].distance}</h4>
+                                <h4 class="text-light text-bodycopy">Difficulty: ${circuitById[0].difficulty}</h4>
                                 
                             </div>
                             <div class="col-sm-12 col-md-6">

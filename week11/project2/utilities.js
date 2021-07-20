@@ -37,6 +37,20 @@ function getDay(unix) {
     let result = {
         day: day[date.getDay()],
         date: date.getDate()
+
+    }
+    return result
+}
+function getDayCircuits(unix){
+    var date = new Date(unix);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
+    var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    // Will display time in 10:30:23 format
+    let result = {
+        day: day[date.getDay()],
+        date: date.getDate()
+
     }
     return result
 }
@@ -140,6 +154,7 @@ export {
     getJSON,
     getLocation,
     getDay,
+    getDayCircuits,
     clearInput,
     renderHeroAccount,
     renderHeroCircuit,
